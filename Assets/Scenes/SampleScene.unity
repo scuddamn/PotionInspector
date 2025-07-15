@@ -3563,6 +3563,7 @@ GameObject:
   - component: {fileID: 251866217}
   - component: {fileID: 251866219}
   - component: {fileID: 251866218}
+  - component: {fileID: 251866220}
   m_Layer: 5
   m_Name: Guidebook
   m_TagString: Guidebook
@@ -3581,10 +3582,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1342106515}
-  - {fileID: 996400444}
-  - {fileID: 1789585179}
+  m_Children: []
   m_Father: {fileID: 603362334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3630,6 +3628,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251866216}
   m_CullTransparentMesh: 1
+--- !u!114 &251866220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251866216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa979f21a9b7f4f29bfc3173bd056a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapPositions:
+  - {fileID: 1342106513}
+  - {fileID: 996400443}
+  - {fileID: 1789585178}
+  moveSpeed: 1
 --- !u!1 &272737035
 GameObject:
   m_ObjectHideFlags: 0
@@ -5362,8 +5377,11 @@ RectTransform:
   - {fileID: 1228729697}
   - {fileID: 1890652746}
   - {fileID: 462248432}
-  - {fileID: 251866217}
   - {fileID: 1473650572}
+  - {fileID: 1342106515}
+  - {fileID: 996400444}
+  - {fileID: 1789585179}
+  - {fileID: 251866217}
   - {fileID: 537250128}
   - {fileID: 1800130650}
   - {fileID: 1877112600}
@@ -6145,11 +6163,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 251866217}
+  m_Father: {fileID: 603362334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -132, y: 0.000015258789}
+  m_AnchoredPosition: {x: 1048, y: -200}
   m_SizeDelta: {x: 513.66, y: 526.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &996400445
@@ -7991,7 +8009,7 @@ GameObject:
   - component: {fileID: 1342106514}
   m_Layer: 5
   m_Name: offscreen snap
-  m_TagString: Guidebook
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8016,11 +8034,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 251866217}
+  m_Father: {fileID: 603362334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1180, y: -200.00002}
   m_SizeDelta: {x: 513.66, y: 526.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1343309521
@@ -8781,7 +8799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -186.57}
+  m_AnchoredPosition: {x: -151, y: -166}
   m_SizeDelta: {x: 100, y: -373.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1473650573
@@ -8814,11 +8832,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -98.1691, y: -1.2218018}
+  m_Offset: {x: 17.33403, y: -10.196472}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8828,7 +8846,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 294.80453, y: 698.5099}
+  m_Size: {x: 260.13657, y: 678.11694}
   m_EdgeRadius: 0
 --- !u!222 &1473650574
 CanvasRenderer:
@@ -8847,14 +8865,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1473650571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa979f21a9b7f4f29bfc3173bd056a16, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ddc885af80154cc8b30f0d4d705b6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapPositions:
-  - {fileID: 1342106513}
-  - {fileID: 996400443}
-  - {fileID: 1789585178}
-  moveSpeed: 2
 --- !u!1 &1487129106
 GameObject:
   m_ObjectHideFlags: 0
@@ -9484,11 +9497,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 251866217}
+  m_Father: {fileID: 603362334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -571.0001, y: 16}
+  m_AnchoredPosition: {x: 608.9999, y: -184.00002}
   m_SizeDelta: {x: 513.66, y: 526.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1789585180

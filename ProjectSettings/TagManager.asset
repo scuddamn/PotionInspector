@@ -9,7 +9,6 @@ TagManager:
   - ChecklistUI
   - ToolUI
   - Guidebook
-  - Book
   layers:
   - Default
   - TransparentFX

@@ -19,17 +19,20 @@ public class BookHover : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        
-        bookManager.MoveToHover();
-        print("hovering");
+        if (!bookManager.IsOpen())
+        {
+            bookManager.MoveToHover();
+            print("hovering");
+        }
     }
 
     private void OnMouseExit()
-    { 
-        if (bookManager.IsOpen()) return;
-        
-        bookManager.MoveOffscreen();
-        print("leaving hover");
+    {
+        if (!bookManager.IsOpen())
+        {
+            bookManager.MoveOffscreen();
+            print("leaving hover");
+        }
     }
 
     private void OnMouseDown()

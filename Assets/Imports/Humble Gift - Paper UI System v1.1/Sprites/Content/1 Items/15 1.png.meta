@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c6136dbefec18471f9e033cb89ca2793
+guid: 7b925379e4273430794fe8d2fe0d6ca5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1648307937220610424
-    second: Large Tonic - PINK - 0000_0
+      213: 4349915267927364619
+    second: 15_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Large Tonic - PINK - 0000_0
+      name: 15_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 19
-        height: 37
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88632890aa80029e0800000000000000
-      internalID: -1648307937220610424
+      spriteID: b04dbdba3e00e5c30800000000000000
+      internalID: 4349915267927364619
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Large Tonic - PINK - 0000_0: -1648307937220610424
+      15_0: 4349915267927364619
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

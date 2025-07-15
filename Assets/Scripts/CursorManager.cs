@@ -4,9 +4,9 @@ using UnityEngine;
 public class CursorManager : MonoBehaviour
 {
     [SerializeField] private Texture2D checklistCursor;
-    [SerializeField] private Texture2D dropperCursor;
+   // [SerializeField] private Texture2D dropperCursor;
 
-    private bool usingDropper = false;
+    //private bool usingDropper = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

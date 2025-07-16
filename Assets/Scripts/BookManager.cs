@@ -35,9 +35,10 @@ public class BookManager : MonoBehaviour
 
     void OpenMenu()
     {
-        bookCanvas.SetActive(true);
         bodyText.alpha = 0;
         titleText.alpha = 0;
+        bookCanvas.SetActive(true);
+        
         bookPage.GetComponent<Animator>().SetTrigger("fadeIn");
         FadeInText();
     }

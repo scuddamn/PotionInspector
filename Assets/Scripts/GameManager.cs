@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject inspectorMenu;
     [SerializeField] private GameObject toolMenu;
     [SerializeField] private GameObject checklistMenu;
-    
     //menu management 
 
     public void OpenInspector() //to be called when clicking the 'inspect' button
@@ -37,4 +36,6 @@ public class GameManager : MonoBehaviour
     {
         checklistMenu.SetActive(false);
     }
+
+    
 }

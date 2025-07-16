@@ -8,7 +8,7 @@ public class BookHover : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        bookManager = FindFirstObjectByType<BookManager>();
+        bookManager = FindFirstObjectByType<BookManager>(); //get reference to the script on the book item
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class BookHover : MonoBehaviour
     }
 
     private void OnMouseEnter()
-    {
+    { //while hovering over area
         if (!bookManager.IsOpen())
         {
             bookManager.MoveToHover();
@@ -27,7 +27,7 @@ public class BookHover : MonoBehaviour
     }
 
     private void OnMouseExit()
-    {
+    { //when stopped hovering over area
         if (!bookManager.IsOpen())
         {
             bookManager.MoveOffscreen();

@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class OpenBusiness : MonoBehaviour
 {
-    [SerializeField] private float closeDelay = 1f;
-    [SerializeField] private TMP_Text signText;
+    [SerializeField] private float closeDelay = 2f;
+    [SerializeField] private GameObject loadOnPlay;
+    private TMP_Text signText;
     private static readonly int Fade = Animator.StringToHash("fade");
     
 
@@ -20,6 +21,7 @@ public class OpenBusiness : MonoBehaviour
     void StartGame()
     {
         gameObject.SetActive(false);
+        loadOnPlay.SetActive(true);
     }
 
     public void OpenStall()

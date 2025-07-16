@@ -3692,6 +3692,11 @@ MonoBehaviour:
   - {fileID: 1789585178}
   moveSpeed: 1
   bookCanvas: {fileID: 1201311424}
+  bookPage: {fileID: 740892115}
+  textFadeSpeed: 1
+  titleText: {fileID: 292099701}
+  bodyText: {fileID: 1650193242}
+  pageFadeSpeed: 2
 --- !u!1 &272737035
 GameObject:
   m_ObjectHideFlags: 0
@@ -5854,8 +5859,6 @@ RectTransform:
   - {fileID: 1333983335}
   - {fileID: 462248432}
   - {fileID: 1120614695}
-  - {fileID: 1472833269}
-  - {fileID: 1280309230}
   - {fileID: 2100783395}
   m_Father: {fileID: 651478169}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7348,6 +7351,8 @@ RectTransform:
   - {fileID: 1800130650}
   - {fileID: 1085091562}
   - {fileID: 1027528776}
+  - {fileID: 1472833269}
+  - {fileID: 1280309230}
   m_Father: {fileID: 603362334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8788,13 +8793,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280309229}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1199420781}
-  m_Father: {fileID: 603362334}
+  m_Father: {fileID: 1120614695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10197,13 +10202,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472833268}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 276168078}
-  m_Father: {fileID: 603362334}
+  m_Father: {fileID: 1120614695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12601,7 +12606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeDelay: 1
-  signText: {fileID: 0}
+  loadOnPlay: {fileID: 1120614694}
 --- !u!1 &2113916077
 GameObject:
   m_ObjectHideFlags: 0

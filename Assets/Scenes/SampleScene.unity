@@ -911,6 +911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 51347506}
   - component: {fileID: 51347507}
+  - component: {fileID: 51347508}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -948,6 +949,25 @@ MonoBehaviour:
   inspectorMenu: {fileID: 1020009636}
   toolMenu: {fileID: 1085091561}
   checklistMenu: {fileID: 183640637}
+--- !u!114 &51347508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51347505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5a272e7205246ddbcaac772133b1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aromaSprites:
+  - {fileID: 2720535173406242035, guid: fd15caa9639a54135b2cb4a186d9ad04, type: 3}
+  - {fileID: 4164744761163438241, guid: 06e85d4144590441fafee7fa940dc9f5, type: 3}
+  - {fileID: 6894999169920593895, guid: b8bd4c52cf7be4d7aa0c1fb61ddb3c91, type: 3}
+  - {fileID: 7157561037332017152, guid: b78d8acab757f49c6b0aea397cfa81ff, type: 3}
+  - {fileID: 2960402581040015946, guid: a4228f96579d34fa092bc3ae8000ce03, type: 3}
+  - {fileID: -7371509505491802261, guid: 94f017c57e0a54c33bb6d44fa7527283, type: 3}
 --- !u!1 &90293304
 GameObject:
   m_ObjectHideFlags: 0
@@ -3696,7 +3716,7 @@ MonoBehaviour:
   textFadeSpeed: 2
   titleText: {fileID: 292099701}
   bodyText: {fileID: 1650193242}
-  pageFadeSpeed: 2
+  pageFadeSpeed: 4
 --- !u!1 &272737035
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,7 +3849,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Call Customer
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3856,7 +3876,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.55
+  m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8599,9 +8619,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cb1d9f49544e34563a21fbaecc9d4870, type: 3}
-  m_Type: 1
-  m_PreserveAspect: 1
+  m_Sprite: {fileID: 21300000, guid: 240759b6abe774a3d895ff0ae112ba69, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -8803,7 +8823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 628, y: -67}
+  m_AnchoredPosition: {x: 654, y: -420}
   m_SizeDelta: {x: 160, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1280309231
@@ -10212,8 +10232,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 624, y: 65.655}
-  m_SizeDelta: {x: 160, y: 100}
+  m_AnchoredPosition: {x: 600, y: 26.435}
+  m_SizeDelta: {x: 373.85, y: 268.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1472833270
 MonoBehaviour:
@@ -10291,9 +10311,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: db7798fdcc96e4c59af4f94aee2b093b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

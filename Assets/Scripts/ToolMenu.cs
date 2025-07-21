@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ToolMenu : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class ToolMenu : MonoBehaviour
 
     public void OpenMenu()
     {
+        GetComponentInChildren<Button>().interactable = true;
         menuButton.transform.DOMove(buttonHide.position, moveSpeed);
         transform.DOMove(openPosition.position, moveSpeed);
         menuOpen = true;
@@ -32,6 +34,7 @@ public class ToolMenu : MonoBehaviour
 
     public void CloseMenu()
     {
+        GetComponentInChildren<Button>().interactable = false;
         transform.DOMove(offscreenPosition.position, moveSpeed);
         menuButton.transform.DOMove(buttonReturn.position, moveSpeed);
         menuOpen = false;

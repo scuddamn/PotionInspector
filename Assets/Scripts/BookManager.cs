@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.UI;
 
 public class BookManager : MonoBehaviour
 {
+    private static readonly int FadeOut = Animator.StringToHash("fadeOut");
+    private static readonly int FadeIn = Animator.StringToHash("fadeIn");
+    
     [SerializeField] List<GameObject> snapPositions;
     [SerializeField] private float moveSpeed = 1.0f;
-    
     
     [Header("Book Menu")]
     [SerializeField] private GameObject bookCanvas;
@@ -25,12 +28,25 @@ public class BookManager : MonoBehaviour
         return isOpen;
     }
     
+
+    // public void ChangePressability()
+    // {
+    //     switch (justPressed)
+    //     {
+    //         case true:
+    //             justPressed = false;
+    //             break;
+    //         case false:
+    //             justPressed = true;
+    //             break;
+    //     }
+    // }
+    
     public void MoveToOpen()
     {
             transform.DOMove(snapPositions[2].transform.position, moveSpeed);
             isOpen = true;
             Invoke(nameof(OpenMenu), 1f);
-            
     }
 
     void OpenMenu()
@@ -38,9 +54,10 @@ public class BookManager : MonoBehaviour
         bodyText.alpha = 0;
         titleText.alpha = 0;
         bookCanvas.SetActive(true);
-        
-        bookPage.GetComponent<Animator>().SetTrigger("fadeIn");
+        bookPage.GetComponent<Animator>().SetTrigger(FadeIn);
         FadeInText();
+        bookPage.GetComponentInChildren<Button>().interactable = true;
+        
     }
 
     void FadeInText()
@@ -73,8 +90,9 @@ public class BookManager : MonoBehaviour
 
     public void LeaveMenu()
     {
+        bookPage.GetComponentInChildren<Button>().interactable = false;
         FadeOutText();
-        bookPage.GetComponent<Animator>().SetTrigger("fadeOut");
+        bookPage.GetComponent<Animator>().SetTrigger(FadeOut);
         Invoke(nameof(CloseBook), pageFadeSpeed);
     }
     

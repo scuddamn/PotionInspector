@@ -15,7 +15,14 @@ public class CustomerMovement : MonoBehaviour
     [SerializeField] private float departDuration = 7f;
     private Animator animator;
 
+    private bool helpingCustomer = false;
+
     private int index;
+
+    public bool HelpingCustomer()
+    {
+        return helpingCustomer;
+    }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,24 +32,40 @@ public class CustomerMovement : MonoBehaviour
     
     public void CustomerReset()
     {
-        gameObject.SetActive(true);
-        transform.localPosition = approachPath[0];
+        if (!helpingCustomer) //reset customer only if they have already departed the scene
+        {
+            gameObject.SetActive(true);
+            transform.localPosition = approachPath[0];
+        }
+        
     }
     public void CustomerArrive()
     {
-        transform.DOLocalPath(approachPath, approachDuration).OnWaypointChange(ApproachCallback);
-        //customer walks up to booth
-
+        //call customer to booth
+        if (helpingCustomer == false)
+        {
+            transform.DOLocalPath(approachPath, approachDuration).OnWaypointChange(ApproachCallback);
+            helpingCustomer = true;
+        }
+        else
+        {
+            print("currently helping a customer! please wait your turn");
+        }
+        
     }
 
     public void CustomerDepart()
     {
+        //send customer on their way
+        //to be called upon checklist completion
+        if (!helpingCustomer) return; //a customer can only depart if they have first arrived
         transform.DOLocalPath(departPath, departDuration).OnWaypointChange(DepartCallback);
+        
     }
     
     void ApproachCallback(int waypointIndex)
     {
-        //change animation based on location
+        //change animation based on waypoint location
             switch (waypointIndex)
             {
                 case 0:
@@ -61,7 +84,7 @@ public class CustomerMovement : MonoBehaviour
 
     void DepartCallback(int waypointIndex)
     {
-        //change animation based on location
+        //change animation based on waypoint location
         switch (waypointIndex)
         {
             case 0:
@@ -79,6 +102,7 @@ public class CustomerMovement : MonoBehaviour
                 break;
             case 3:
                 print("end");
+                helpingCustomer = false; //free the merchant to help the next customer
                 gameObject.SetActive(false);
                 Invoke(nameof(CustomerReset), 2f);
                 break;

@@ -4,7 +4,7 @@ using UnityEngine;
 public class CursorManager : MonoBehaviour
 {
     [SerializeField] private Texture2D checklistCursor;
-   // [SerializeField] private Texture2D dropperCursor;
+   
 
     //private bool usingDropper = false;
     

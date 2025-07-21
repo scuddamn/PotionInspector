@@ -17,9 +17,9 @@ public class ButtonHighlight : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (isHighlighted == false && !toolMenu.menuOpen)
+        if (isHighlighted == false && !toolMenu.MenuOpen()) //if the menu is closed and the button is not already highlighted
         {
-             transform.DOMove(highlightedPosition.position, moveSpeed);
+             transform.DOMove(highlightedPosition.position, moveSpeed); //button moves up when mouse is hovering over it
              isHighlighted = true;
         }
        
@@ -27,9 +27,9 @@ public class ButtonHighlight : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (isHighlighted && !toolMenu.menuOpen)
+        if (isHighlighted && !toolMenu.MenuOpen()) //if the button is in the highlighted position and the menu itself is closed
         {
-            transform.DOMove(startPosition.position, moveSpeed);
+            transform.DOMove(startPosition.position, moveSpeed); //button returns to non-highlighted position
             isHighlighted = false;
         }
     }

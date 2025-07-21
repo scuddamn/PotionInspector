@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class OpenBusiness : MonoBehaviour
 {
-    [SerializeField] private float closeDelay = 2f;
+    [Tooltip("time before menu fully closes")][SerializeField] private float closeDelay = 2f;
     [SerializeField] private GameObject loadOnPlay;
+    
     private TMP_Text signText;
     private static readonly int Fade = Animator.StringToHash("fade");
     
@@ -21,15 +22,16 @@ public class OpenBusiness : MonoBehaviour
 
     void StartGame()
     {
-        gameObject.SetActive(false);
-        loadOnPlay.SetActive(true);
+        gameObject.SetActive(false); //turn off 'open stall' button
+        loadOnPlay.SetActive(true); //enable main gameplay objects
     }
 
     public void OpenStall()
     {
         GetComponent<Button>().interactable = false;
-        signText.DOFade(0f, 0.5f);
         GetComponent<Animator>().SetTrigger(Fade);
+        signText.DOFade(0f, 0.5f);
+        
         
         Invoke(nameof(StartGame), closeDelay);
     }

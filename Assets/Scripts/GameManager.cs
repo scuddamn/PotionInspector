@@ -1,11 +1,23 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //menus for management
     [SerializeField] private GameObject inspectorMenu;
     [SerializeField] private GameObject toolMenu;
-    [SerializeField] private GameObject checklistMenu;
-    //menu management 
+    [SerializeField] private GameObject checklistMenu; 
+    
+    //menu management for starting the game
+    [SerializeField] private GameObject openButton;
+    [SerializeField] private GameObject gameplayObjects;
+    
+    
+    private void Awake()
+    { //even if something is disabled in the inspector, the game will initialize with correct active and inactive objects/menus
+        openButton.SetActive(true);
+        gameplayObjects.SetActive(false);
+    }
 
     public void OpenInspector() //to be called when clicking the 'inspect' button
     {
@@ -32,7 +44,7 @@ public class GameManager : MonoBehaviour
         checklistMenu.SetActive(true);
     }
 
-    public void CloseChecklist() //close menu after clicking 'x'
+    public void CloseChecklist() //close checklist menu after clicking 'x'
     {
         checklistMenu.SetActive(false);
     }

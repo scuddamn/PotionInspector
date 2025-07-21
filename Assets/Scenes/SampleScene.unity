@@ -949,6 +949,8 @@ MonoBehaviour:
   inspectorMenu: {fileID: 1020009636}
   toolMenu: {fileID: 1085091561}
   checklistMenu: {fileID: 183640637}
+  openButton: {fileID: 2100783394}
+  gameplayObjects: {fileID: 1120614694}
 --- !u!114 &51347508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7004,7 +7006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1020009637
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7332,8 +7334,10 @@ MonoBehaviour:
   menuButton: {fileID: 1800130649}
   buttonHide: {fileID: 9396251}
   buttonReturn: {fileID: 168767647}
+  hideableButtons:
+  - {fileID: 1472833270}
+  - {fileID: 1280309231}
   moveSpeed: 1
-  menuOpen: 0
 --- !u!1 &1120614694
 GameObject:
   m_ObjectHideFlags: 0
@@ -7366,13 +7370,13 @@ RectTransform:
   - {fileID: 560409983}
   - {fileID: 1890652746}
   - {fileID: 1473650572}
-  - {fileID: 251866217}
   - {fileID: 537250128}
   - {fileID: 1800130650}
-  - {fileID: 1085091562}
   - {fileID: 1027528776}
   - {fileID: 1472833269}
   - {fileID: 1280309230}
+  - {fileID: 1085091562}
+  - {fileID: 251866217}
   m_Father: {fileID: 603362334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8823,7 +8827,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 654, y: -420}
+  m_AnchoredPosition: {x: -733, y: -187}
   m_SizeDelta: {x: 160, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1280309231
@@ -8874,18 +8878,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: CustomerMovement, Assembly-CSharp
         m_MethodName: CustomerDepart
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1280309231}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10244,7 +10236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 415, y: 65}
+  m_AnchoredPosition: {x: -725, y: 11}
   m_SizeDelta: {x: 373.85, y: 268.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1472833270
@@ -10302,18 +10294,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1280309231}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1472833271
 MonoBehaviour:
@@ -12546,7 +12526,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -12649,7 +12629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0547b8b2cda544320a722b356e080378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeDelay: 1
+  closeDelay: 2
   loadOnPlay: {fileID: 1120614694}
 --- !u!1 &2113916077
 GameObject:

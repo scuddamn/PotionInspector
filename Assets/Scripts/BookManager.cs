@@ -10,6 +10,7 @@ public class BookManager : MonoBehaviour
     private static readonly int FadeOut = Animator.StringToHash("fadeOut");
     private static readonly int FadeIn = Animator.StringToHash("fadeIn");
     
+    [Header("Book Hover + Movement")]
     [SerializeField] List<GameObject> snapPositions;
     [SerializeField] private float moveSpeed = 1.0f;
     
@@ -28,71 +29,61 @@ public class BookManager : MonoBehaviour
         return isOpen;
     }
     
-
-    // public void ChangePressability()
-    // {
-    //     switch (justPressed)
-    //     {
-    //         case true:
-    //             justPressed = false;
-    //             break;
-    //         case false:
-    //             justPressed = true;
-    //             break;
-    //     }
-    // }
+    void Start()
+    {
+        titleText.alpha = 0;
+        bodyText.alpha = 0; //set initial text alpha value to 0, so the text can fade in upon opening the menu
+    }
     
-    public void MoveToOpen()
+    public void MoveToOpen() //move the book to the 'activated' position on the desk
     {
             transform.DOMove(snapPositions[2].transform.position, moveSpeed);
             isOpen = true;
             Invoke(nameof(OpenMenu), 1f);
     }
 
-    void OpenMenu()
+    void OpenMenu() //opens the book menu
     {
-        bodyText.alpha = 0;
-        titleText.alpha = 0;
         bookCanvas.SetActive(true);
-        bookPage.GetComponent<Animator>().SetTrigger(FadeIn);
+        bookPage.GetComponent<Animator>().SetTrigger(FadeIn); //page materializes with animation
         FadeInText();
-        bookPage.GetComponentInChildren<Button>().interactable = true;
+        bookPage.GetComponentInChildren<Button>().interactable = true; //makes menu close button 'x' interactable
         
     }
 
-    void FadeInText()
+    void FadeInText() //page text fades in to full alpha
     {
         bodyText.DOFade(255, textFadeSpeed);
         titleText.DOFade(255, textFadeSpeed);
     }
     
-    void FadeOutText()
+    void FadeOutText() //page text fades from full alpha to 0 
     {
         bodyText.DOFade(0, textFadeSpeed);
         titleText.DOFade(0, textFadeSpeed);
     }
     
-    public void MoveOffscreen()
+    public void MoveOffscreen() //moves book offscreen to initial position
     {
         transform.DOMove(snapPositions[0].transform.position, moveSpeed);
     }
 
-    public void MoveToHover()
+    public void MoveToHover() //move book to be slightly onscreen when hovering over a specific area - connected to BookHover script
     {
         transform.DOMove(snapPositions[1].transform.position, moveSpeed);
     }
 
-    void CloseBook()
+    void CloseBook() //book menu closes
     {
         bookCanvas.SetActive(false);
         isOpen = false;
     }
 
-    public void LeaveMenu()
+    public void LeaveMenu() //menu closing process begins
     {
-        bookPage.GetComponentInChildren<Button>().interactable = false;
+        bookPage.GetComponentInChildren<Button>().interactable = false; //once the 'x' button is pressed to close the menu, it cannot be pressed again
         FadeOutText();
-        bookPage.GetComponent<Animator>().SetTrigger(FadeOut);
+        bookPage.GetComponent<Animator>().SetTrigger(FadeOut); //animation makes page disappear
         Invoke(nameof(CloseBook), pageFadeSpeed);
     }
     

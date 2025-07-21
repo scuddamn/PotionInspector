@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
-using Image = UnityEngine.UI.Image;
+
 
 [CreateAssetMenu(fileName = "Potion", menuName = "Scriptable Objects/ScriptablePotions")]
 public class ScriptablePotions : ScriptableObject
@@ -17,7 +16,7 @@ public class ScriptablePotions : ScriptableObject
     
     [Header("Testable attributes")]
     [SerializeField] private List<AromaType.AromaOptions> aromas = new List<AromaType.AromaOptions>(3);
-    [SerializeField] private Sprite magicFlame;
+    [Tooltip("choose size + color of flame")][SerializeField] private Sprite magicFlame;
     [Tooltip("Check box if potion should be approved, leave blank if potion should be rejected")][SerializeField] private bool approvable;
 
     public string GetPotionName()

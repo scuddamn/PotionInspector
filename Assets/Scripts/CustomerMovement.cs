@@ -16,6 +16,7 @@ public class CustomerMovement : MonoBehaviour
     private Animator animator;
 
     private bool helpingCustomer = false;
+    private bool isWaiting = false;
 
     private int index;
 
@@ -59,8 +60,15 @@ public class CustomerMovement : MonoBehaviour
         //send customer on their way
         //to be called upon checklist completion
         if (!helpingCustomer) return; //a customer can only depart if they have first arrived
-        transform.DOLocalPath(departPath, departDuration).OnWaypointChange(DepartCallback);
-        
+
+        if (helpingCustomer && isWaiting)
+        {
+            transform.DOLocalPath(departPath, departDuration).OnWaypointChange(DepartCallback); 
+        }
+        else if (isWaiting == false && helpingCustomer)
+        {
+            print("customer hasn't been served yet!");
+        }
     }
     
     void ApproachCallback(int waypointIndex)
@@ -77,6 +85,7 @@ public class CustomerMovement : MonoBehaviour
                     break;
                 case 2:
                     animator.SetBool(Waiting, true);
+                    isWaiting = true;
                     print("p2");
                     break;
             }
@@ -90,6 +99,7 @@ public class CustomerMovement : MonoBehaviour
             case 0:
                 animator.SetBool(Waiting, false);
                 animator.SetTrigger(Walk);
+                isWaiting = false;
                 print("point 0");
                 break;
             case 1:

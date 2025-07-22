@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -9,16 +10,19 @@ public class CustomerMovement : MonoBehaviour
     private static readonly int Down = Animator.StringToHash("down");
     private static readonly int Waiting = Animator.StringToHash("waiting");
     private static readonly int Up = Animator.StringToHash("up");
-    [SerializeField] private Vector3[] approachPath = new Vector3[3];
-    [SerializeField] private Vector3[] departPath = new Vector3[4];
+    
+    [SerializeField] private Transform[] approachPoints;
+    [SerializeField] private Transform[] departPoints;
     [SerializeField] private float approachDuration = 5f;
     [SerializeField] private float departDuration = 7f;
     private Animator animator;
-
+    private DialogueWindow dialogueWindow;
     private bool helpingCustomer = false;
     private bool isWaiting = false;
 
     private int index;
+    private Vector3[] approachPath;
+    private Vector3[] departPath;
 
     public bool HelpingCustomer()
     {
@@ -28,7 +32,28 @@ public class CustomerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        dialogueWindow = FindFirstObjectByType<DialogueWindow>();
         animator = GetComponentInChildren<Animator>();
+        approachPath = new Vector3[approachPoints.Length];
+        departPath = new Vector3[departPoints.Length];
+        GetWaypoints();
+    }
+
+    void GetWaypoints() //get the position values from the waypoints and put them into a vector3 array to use them with DOPath
+    {
+        int count = 0;
+        foreach (var waypoint in approachPath)
+        {
+            approachPath[count] = approachPoints[count].transform.localPosition;
+            count++;
+        }
+
+        int amount = 0;
+        foreach (var waypoint in departPath)
+        {
+            departPath[amount] = departPoints[amount].transform.localPosition;
+            amount++;
+        }
     }
     
     public void CustomerReset()
@@ -37,9 +62,9 @@ public class CustomerMovement : MonoBehaviour
         {
             gameObject.SetActive(true);
             transform.localPosition = approachPath[0];
-        }
-        
+        } 
     }
+    
     public void CustomerArrive()
     {
         //call customer to booth
@@ -59,15 +84,15 @@ public class CustomerMovement : MonoBehaviour
     {
         //send customer on their way
         //to be called upon checklist completion
-        if (!helpingCustomer) return; //a customer can only depart if they have first arrived
+        if (!isWaiting || !helpingCustomer)
+        {
+            print("you can't make anyone leave yet");
+        } //a customer can only depart if they have first arrived
 
         if (helpingCustomer && isWaiting)
         {
             transform.DOLocalPath(departPath, departDuration).OnWaypointChange(DepartCallback); 
-        }
-        else if (isWaiting == false && helpingCustomer)
-        {
-            print("customer hasn't been served yet!");
+            dialogueWindow.RetractWindow();
         }
     }
     
@@ -114,7 +139,7 @@ public class CustomerMovement : MonoBehaviour
                 print("end");
                 helpingCustomer = false; //free the merchant to help the next customer
                 gameObject.SetActive(false);
-                Invoke(nameof(CustomerReset), 2f);
+                Invoke(nameof(CustomerReset), 0.5f);
                 break;
         }
     }

@@ -18,6 +18,7 @@ public class ScriptablePotions : ScriptableObject
     [SerializeField] private List<AromaType.AromaOptions> aromas = new List<AromaType.AromaOptions>(3);
     [Tooltip("choose size + color of flame")][SerializeField] private Sprite magicFlame;
     [Tooltip("Check box if potion should be approved, leave blank if potion should be rejected")][SerializeField] private bool approvable;
+    
 
     public string GetPotionName()
     {
@@ -39,9 +40,9 @@ public class ScriptablePotions : ScriptableObject
         return alchemist;
     }
 
-    public AromaType.AromaOptions GetAromas(int index)
+    public List<AromaType.AromaOptions> GetAromas()
     {
-        return aromas[index];
+        return aromas;
     }
 
     public Sprite GetFlameSprite()

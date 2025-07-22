@@ -32,6 +32,28 @@ public class DialogueWindow : MonoBehaviour
 
     public void BeginInspection()
     {
-        transform.DOMove(talkingPosition, moveSpeed);
+        if (!onScreen)
+        {
+            transform.DOMove(talkingPosition, moveSpeed);
+            onScreen = true;
+            nametag.text = potionManager.AlchemistName();
+        }
+        else
+        {
+            print("dialogue box already on screen");
+        }
+
     }
+
+    public void RetractWindow()
+    {
+        if (onScreen)
+        {
+            transform.DOMove(offscreenPosition, moveSpeed);
+            onScreen = false;
+        }
+        else return;
+    }
+    
+    
 }

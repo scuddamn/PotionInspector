@@ -8,20 +8,17 @@ public class DialogueWindow : MonoBehaviour
     [SerializeField] private Transform offscreenPos;
     [SerializeField] private Transform talkingPos;
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private TextMeshProUGUI nametag;
+    [SerializeField] private TMP_Text nametag;
 
     private bool onScreen = false;
     private TextMeshProUGUI dialogueText;
     private PotionManager potionManager;
-    private Vector3 offscreenPosition;
-    private Vector3 talkingPosition;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         potionManager = FindFirstObjectByType<PotionManager>();
-        offscreenPos.position = offscreenPosition;
-        talkingPos.position = talkingPosition;
     }
 
     // Update is called once per frame
@@ -34,9 +31,8 @@ public class DialogueWindow : MonoBehaviour
     {
         if (!onScreen)
         {
-            transform.DOMove(talkingPosition, moveSpeed);
+            transform.DOMove(talkingPos.position, moveSpeed);
             onScreen = true;
-            nametag.text = potionManager.AlchemistName();
         }
         else
         {
@@ -49,7 +45,7 @@ public class DialogueWindow : MonoBehaviour
     {
         if (onScreen)
         {
-            transform.DOMove(offscreenPosition, moveSpeed);
+            transform.DOMove(offscreenPos.position, moveSpeed);
             onScreen = false;
         }
         else return;

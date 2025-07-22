@@ -11,6 +11,11 @@ public class PotionManager : MonoBehaviour
 
     [SerializeField] private Transform aromaDisplay;
     [SerializeField] private TextMeshProUGUI dialogueBox;
+    [SerializeField] private TMP_Text nametag;
+    [SerializeField] private GameObject inspectionIcon;
+    
+    [SerializeField] private Transform potionSnapOffscreen;
+    [SerializeField] private Transform potionSnapDesk;
     
     private AromaType aromaManager;
     
@@ -27,10 +32,14 @@ public class PotionManager : MonoBehaviour
         
     }
 
-    public string AlchemistName()
+    public void OnNewCustomer()
     {
-        return currentPotion.GetPotionCreator().ToString();
+        GetComponentInChildren<Image>().sprite = currentPotion.GetPotionSprite();
+        inspectionIcon.GetComponent<Image>().sprite = currentPotion.GetPotionSprite();
+        nametag.text = $"{currentPotion.GetPotionCreator()}";
+        dialogueBox.text = $"This is my {currentPotion.GetPotionName()}";
     }
+    
 
     public void DisplayAroma()
     {

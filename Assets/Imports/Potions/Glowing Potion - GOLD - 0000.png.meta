@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ae8b7778e0b344f3ebf2269edb20d169
+guid: 7ca942799284d4eec966f5bc6c4d2a33
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7408119473977750870
-    second: Small Bottle - BLACK - 0000_0
+      213: 1062730817302274077
+    second: Glowing Potion - GOLD - 0000_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Small Bottle - BLACK - 0000_0
+      name: Glowing Potion - GOLD - 0000_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 12
-        height: 26
+        width: 24
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 655f814696deec660800000000000000
-      internalID: 7408119473977750870
+      spriteID: d10a9293c049fbe00800000000000000
+      internalID: 1062730817302274077
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Small Bottle - BLACK - 0000_0: 7408119473977750870
+      Glowing Potion - GOLD - 0000_0: 1062730817302274077
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

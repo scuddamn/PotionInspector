@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potionName: Potion of Plant Growth
   potionType: 3
-  potionSprite: {fileID: -6478319989097925050, guid: ecf13817fed2848cd9e5a18c14008a9b, type: 3}
+  potionSprite: {fileID: 21300000, guid: 371c14313aa65438785f7e72be9ee3ed, type: 3}
   alchemist: 3
-  aromas: 0200000004000000
+  aromas: 0200000005000000
   magicFlame: {fileID: 0}
   approvable: 1

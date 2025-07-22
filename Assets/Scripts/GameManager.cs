@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
         openButton.SetActive(true);
         gameplayObjects.SetActive(false);
         inspectorMenu.SetActive(false);
-        toolMenu.SetActive(false);
         checklistMenu.SetActive(false);
     }
 

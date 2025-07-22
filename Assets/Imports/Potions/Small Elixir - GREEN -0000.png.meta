@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 185533be7b7714fc4baf4002af8bf118
+guid: 371c14313aa65438785f7e72be9ee3ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3083004852969707501
-    second: Large Bottle - PURPLE - 0000_0
+      213: 4241879811993339598
+    second: Small Elixir - GREEN -0000_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Large Bottle - PURPLE - 0000_0
+      name: Small Elixir - GREEN -0000_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 51
+        width: 15
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3186fe1bb67f635d0800000000000000
-      internalID: -3083004852969707501
+      spriteID: ec683cde63f2eda30800000000000000
+      internalID: 4241879811993339598
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Large Bottle - PURPLE - 0000_0: -3083004852969707501
+      Small Elixir - GREEN -0000_0: 4241879811993339598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

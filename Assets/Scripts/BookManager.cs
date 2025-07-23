@@ -40,7 +40,7 @@ public class BookManager : MonoBehaviour
             transform.DOMove(snapPositions[2].transform.position, moveSpeed);
             isOpen = true;
             transform.DOScale(2f, 1f);
-            Invoke(nameof(OpenMenu), 1f);
+            Invoke(nameof(OpenMenu), 0.5f);
     }
 
     void OpenMenu() //opens the book menu

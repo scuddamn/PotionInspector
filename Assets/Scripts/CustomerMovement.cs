@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using Unity.VisualScripting;
@@ -15,11 +16,12 @@ public class CustomerMovement : MonoBehaviour
     [SerializeField] private Transform[] departPoints;
     [SerializeField] private float approachDuration = 5f;
     [SerializeField] private float departDuration = 7f;
+   
     private Animator animator;
     private DialogueWindow dialogueWindow;
     private bool helpingCustomer = false;
     private bool isWaiting = false;
-
+    private PotionManager potionManager;
     private int index;
     private Vector3[] approachPath;
     private Vector3[] departPath;
@@ -28,12 +30,19 @@ public class CustomerMovement : MonoBehaviour
     {
         return helpingCustomer;
     }
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Awake()
     {
         dialogueWindow = FindFirstObjectByType<DialogueWindow>();
         animator = GetComponentInChildren<Animator>();
+        potionManager = FindFirstObjectByType<PotionManager>();
+        
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
         approachPath = new Vector3[approachPoints.Length];
         departPath = new Vector3[departPoints.Length];
         GetWaypoints();
@@ -93,6 +102,7 @@ public class CustomerMovement : MonoBehaviour
         {
             transform.DOLocalPath(departPath, departDuration).OnWaypointChange(DepartCallback); 
             dialogueWindow.RetractWindow();
+            potionManager.PotionTaken();
         }
     }
     
@@ -112,6 +122,7 @@ public class CustomerMovement : MonoBehaviour
                     animator.SetBool(Waiting, true);
                     isWaiting = true;
                     dialogueWindow.BeginInspection(); //formerly gave an error?? unclear why it stopped so keep an eye on it
+                    potionManager.PotionGiven();
                     print("p2");
                     break;
             }

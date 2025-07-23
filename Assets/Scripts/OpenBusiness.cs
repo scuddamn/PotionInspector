@@ -9,7 +9,8 @@ public class OpenBusiness : MonoBehaviour
 {
     [Tooltip("time before menu fully closes")][SerializeField] private float closeDelay = 2f;
     [SerializeField] private GameObject loadOnPlay;
-    
+
+    private CustomerMovement customer;
     private TMP_Text signText;
     private static readonly int Fade = Animator.StringToHash("fade");
     
@@ -18,6 +19,7 @@ public class OpenBusiness : MonoBehaviour
     {
         GetComponent<Button>().interactable = true;
         signText = GetComponentInChildren<TMP_Text>();
+        customer = FindFirstObjectByType<CustomerMovement>();
     }
 
     void StartGame()

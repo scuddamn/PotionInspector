@@ -8,17 +8,17 @@ public class DialogueWindow : MonoBehaviour
     [SerializeField] private Transform offscreenPos;
     [SerializeField] private Transform talkingPos;
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private TMP_Text nametag;
 
     private bool onScreen = false;
     private TextMeshProUGUI dialogueText;
-    private PotionManager potionManager;
+    
+    //TO ADD: space to pass through dialogue from CustomerSO
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        potionManager = FindFirstObjectByType<PotionManager>();
+        
     }
 
     // Update is called once per frame

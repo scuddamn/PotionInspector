@@ -79,6 +79,7 @@ public class BookManager : MonoBehaviour
         transform.DOScale(1f, 1f);
         bookCanvas.SetActive(false);
         isOpen = false;
+        MoveOffscreen();
     }
 
     public void LeaveMenu() //menu closing process begins

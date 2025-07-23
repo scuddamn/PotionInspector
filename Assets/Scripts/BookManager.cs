@@ -39,6 +39,7 @@ public class BookManager : MonoBehaviour
     {
             transform.DOMove(snapPositions[2].transform.position, moveSpeed);
             isOpen = true;
+            transform.DOScale(2f, 1f);
             Invoke(nameof(OpenMenu), 1f);
     }
 
@@ -53,8 +54,8 @@ public class BookManager : MonoBehaviour
 
     void FadeInText() //page text fades in to full alpha
     {
-        bodyText.DOFade(255, textFadeSpeed);
-        titleText.DOFade(255, textFadeSpeed);
+        bodyText.DOFade(1, textFadeSpeed);
+        titleText.DOFade(1, textFadeSpeed);
     }
     
     void FadeOutText() //page text fades from full alpha to 0 
@@ -75,6 +76,7 @@ public class BookManager : MonoBehaviour
 
     void CloseBook() //book menu closes
     {
+        transform.DOScale(1f, 1f);
         bookCanvas.SetActive(false);
         isOpen = false;
     }

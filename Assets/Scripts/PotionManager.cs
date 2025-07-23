@@ -44,7 +44,6 @@ public class PotionManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentPotion = potionOptions[0]; //TEMP
         transform.position = potionSnapOffscreen.position;
         aromaManager = FindFirstObjectByType<AromaType>();
         aromaDisplay.SetActive(false);
@@ -58,6 +57,7 @@ public class PotionManager : MonoBehaviour
 
     public void OnNewCustomer() //when bell is rung
     {
+        GetRandomPotion();
         //change all images to match current potion
         GetComponentInChildren<Image>().sprite = currentPotion.GetPotionSprite();
         potionInspectionIcon.GetComponent<Image>().sprite = currentPotion.GetPotionSprite();
@@ -82,6 +82,12 @@ public class PotionManager : MonoBehaviour
     {
         transform.DOMove(potionSnapOffscreen.position, moveSpeed);
         hasPotion = false;
+    }
+
+    void GetRandomPotion()
+    {
+        int random = Random.Range(0, potionOptions.Count);
+        currentPotion = potionOptions[random];
     }
 
     public void InspectPotion() //colorblind-friendly inspection method that describes the potion color

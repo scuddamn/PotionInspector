@@ -27,9 +27,14 @@ public class PotionManager : MonoBehaviour
     [SerializeField] private Transform potionSnapOffscreen;
     [SerializeField] private Transform potionSnapDesk;
     [SerializeField] private float moveSpeed = 1f;
-    
-    
+
+    private bool hasPotion = false;
     private AromaType aromaManager;
+
+    public bool HasPotion()
+    {
+        return hasPotion;
+    }
 
     public ScriptablePotions CurrentPotion()
     {
@@ -42,6 +47,7 @@ public class PotionManager : MonoBehaviour
         currentPotion = potionOptions[0]; //TEMP
         transform.position = potionSnapOffscreen.position;
         aromaManager = FindFirstObjectByType<AromaType>();
+        aromaDisplay.SetActive(false);
     }
 
     // Update is called once per frame
@@ -64,17 +70,18 @@ public class PotionManager : MonoBehaviour
         potionName.text = $"{currentPotion.GetPotionName()}";
         alchemistName.text = $"{currentPotion.GetPotionCreator()}";
         
-        aromaDisplay.SetActive(false);
     }
 
     public void PotionGiven() //customer gives player potion
     {
         transform.DOMove(potionSnapDesk.position, moveSpeed);
+        hasPotion = true;
     }
 
     public void PotionTaken() //customer takes potion when they leave
     {
         transform.DOMove(potionSnapOffscreen.position, moveSpeed);
+        hasPotion = false;
     }
 
     public void InspectPotion() //colorblind-friendly inspection method that describes the potion color
@@ -85,19 +92,19 @@ public class PotionManager : MonoBehaviour
 
     public void DisplayAroma()
     {
-        inspectionText.text = "";
+        inspectionText.text = ""; //hide text while aroma sprites are displayed
         aromaDisplay.SetActive(true);
         
-        List<AromaType.AromaOptions> aromas = currentPotion.GetAromas();
+        List<AromaType.AromaOptions> aromas = currentPotion.GetAromas(); //get ref to aromas attached to current potionSO
         
         List<Sprite> aromaIcons = new List<Sprite>();
-        foreach (var aroma in aromas)
+        foreach (var aroma in aromas) //get related icons for each selected aroma
         {
             aromaIcons.Add(aromaManager.GetAroma(aroma));
         }
         
         List<Transform> aromaDisplays = new List<Transform>();
-        foreach (Transform child in aromaDisplay.transform)
+        foreach (Transform child in aromaDisplay.transform) //get locations that will display each aroma icon
         {
             aromaDisplays.Add(child);
         }
@@ -106,7 +113,7 @@ public class PotionManager : MonoBehaviour
         int count = 0;
         foreach (var display in aromaDisplays)
         {
-            aromaDisplays[count].GetComponent<Image>().sprite = aromaIcons[count];
+            aromaDisplays[count].GetComponent<Image>().sprite = aromaIcons[count]; //change sprite to corresponding aromas
             count++;
         }
 

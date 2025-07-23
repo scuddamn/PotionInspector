@@ -1,6 +1,10 @@
 using System;
+using System.Collections;
 using DG.Tweening;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,11 +23,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform checklistSnapOut;
     private bool checklistOpen = false;
     
+    [Header("Warning Message")]
+    [SerializeField] private Image decorScroll;
+    [SerializeField] private TMP_Text messageText;
+    [SerializeField] private float messageFadeTime = 1f;
+    [SerializeField] private float messageDuration = 4f;
+
+    private PotionManager potionManager;
     
     private void Awake()  //start game with menus offscreen
     { 
         inspectorMenu.transform.position = inspectorSnapOut.position;
         checklistMenu.transform.position = checklistSnapOut.position;
+        potionManager = FindFirstObjectByType<PotionManager>();
     }
 
     private void Start()
@@ -33,11 +45,21 @@ public class GameManager : MonoBehaviour
 
     public void OpenInspector() //to be called when clicking the 'inspect' button
     {
-        if (!inspectorOpen)
+        if (potionManager.HasPotion() && !inspectorOpen)
         {
             inspectorMenu.transform.DOMove(inspectorSnapIn.position, moveSpeed);
             inspectorOpen = true;
-        } else Debug.Log("inspector is already open");
+            
+        } else if (inspectorOpen)
+        {
+            Debug.Log("inspector is already open");
+            
+        } else if (!potionManager.HasPotion())
+        {
+            StartCoroutine(ShowWarning());
+        }
+
+        
     }
 
     public void CloseInspector() //to be called when clicking 'x' on the inspector menu
@@ -51,11 +73,19 @@ public class GameManager : MonoBehaviour
 
     public void OpenChecklist() //open menu after clicking checklist icon
     {
-        if (!checklistOpen)
+        if (!checklistOpen && potionManager.HasPotion())
         {
             checklistMenu.transform.DOMove(checklistSnapIn.position, moveSpeed);
             checklistOpen = true;
-        } else Debug.Log("checklist already open");
+        } else if (checklistOpen)
+        {
+            Debug.Log("checklist already open");
+        } else if (!potionManager.HasPotion())
+        {
+            StartCoroutine(ShowWarning());
+        }
+
+        
     }
 
     public void CloseChecklist() //close checklist menu after clicking 'x'
@@ -66,6 +96,18 @@ public class GameManager : MonoBehaviour
             Cursor.SetCursor(null, Vector2.down, CursorMode.Auto);
             checklistOpen = false;
         } else Debug.Log("checklist already closed");
+    }
+
+    
+
+    IEnumerator ShowWarning()
+    {
+        decorScroll.DOFade(1, messageFadeTime);
+        messageText.DOFade(1, messageFadeTime);
+        yield return new WaitForSeconds(messageDuration);
+        decorScroll.DOFade(0, messageFadeTime);
+        messageText.DOFade(0, messageFadeTime);
+        yield return new WaitForSeconds(0.5f);
     }
 
     

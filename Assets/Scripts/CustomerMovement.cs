@@ -93,7 +93,7 @@ public class CustomerMovement : MonoBehaviour
     {
         //send customer on their way
         //to be called upon checklist completion
-        //ADD checklist reset somewhere in here
+        
         if (!isWaiting || !helpingCustomer)
         {
             print("you can't make anyone leave yet");

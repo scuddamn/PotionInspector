@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -20,13 +21,12 @@ public class ToolMenu : MonoBehaviour
     
     [Header("Movement Speed")]
     [SerializeField] private float moveSpeed = 1f;
-
-    [Header("Misc")] 
-    [SerializeField] private GameObject toolWarning;
     
+    [Header("Tool Snap Locations")]
+    [SerializeField] Transform[] toolSpots;
     
-    private bool toolRemoved = false;
     private bool menuOpen = false;
+    
 
     public bool MenuOpen()
     {
@@ -36,7 +36,7 @@ public class ToolMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        toolRemoved = false;
+        
         // gameObject.transform.position = offscreenPosition.position; //ensure menu starts offscreen
     }
 
@@ -53,39 +53,39 @@ public class ToolMenu : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Tool"))
-        {
-            toolRemoved = true;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Tool"))
-        {
-            toolRemoved = false;
-        }
-    }
-
     public void CloseMenu()
     {
-        if (toolRemoved)
-        {
-            toolWarning.SetActive(true);
-            return;
-        }
+        StartCoroutine(OrganizeTools());
         
-        toolWarning.SetActive(false);
+    }
+
+    IEnumerator OrganizeTools()
+    {
+        var tools = GameObject.FindGameObjectsWithTag("Tool");
+        int index = 0;
+        foreach (var tool in tools)
+        {
+            tool.transform.DOMove(toolSpots[index].localPosition, 0.5f);
+            index++;
+            if (tools.Length != toolSpots.Length)
+            {
+                Debug.Log("not enough tool spots");
+            }
+        }
+
+        //yield return new WaitForSeconds(1f);
+        
         GetComponentInChildren<Button>().interactable = false; //once minimize button has been clicked, it cannot be clicked again
         transform.DOMove(offscreenPosition.position, moveSpeed); //menu slides offscreen
         menuButton.transform.DOMove(buttonReturn.position, moveSpeed); //menu button returns to screen
         menuOpen = false;
         
+        
         foreach (Button button in hideableButtons) //re-enable interactability on buttons that were hidden by the menu
         {
             button.interactable = true;
         }
+
+        yield return new WaitForEndOfFrame();
     }
 }

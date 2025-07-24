@@ -31,6 +31,7 @@ public class PotionManager : MonoBehaviour
     private bool hasPotion = false;
     private AromaType aromaManager;
     private ChecklistHandler checklist;
+    private DayNightCycle clock;
 
     public bool HasPotion()
     {
@@ -48,6 +49,7 @@ public class PotionManager : MonoBehaviour
         transform.position = potionSnapOffscreen.position;
         aromaManager = FindFirstObjectByType<AromaType>();
         checklist = FindFirstObjectByType<ChecklistHandler>();
+        clock = FindFirstObjectByType<DayNightCycle>();
     }
 
     public void OnNewCustomer() //when bell is rung
@@ -83,6 +85,7 @@ public class PotionManager : MonoBehaviour
     {
         transform.DOMove(potionSnapOffscreen.position, moveSpeed);
         hasPotion = false;
+        clock.IncrementTimeStage(); //advance day/night cycle animation to next time of day
     }
 
     void GetRandomPotion() //choose random potion from serialized list of potion options

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 3ef658d907d3b4bba803615c1144806a
+guid: dc16b37e2a9624e6d9da1eb5dd786015
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3622384725455302239
-    second: pixil-frame-0 (25)_0
+      213: -6750827237315361544
+    second: burning_start_2_0
+  - first:
+      213: -7207201287702123850
+    second: burning_start_2_1
+  - first:
+      213: -8683163583311081061
+    second: burning_start_2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,13 +52,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
-  spriteBorder: {x: 16, y: 0, z: 17, w: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -126,23 +132,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixil-frame-0 (25)_0
+      name: burning_start_2_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 4
-        width: 28
-        height: 57
+        x: 7
+        y: 0
+        width: 29
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5e609037bb454230800000000000000
-      internalID: 3622384725455302239
+      spriteID: 8f449c3256e3052a0800000000000000
+      internalID: -6750827237315361544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burning_start_2_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 0
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bae6cd3d90eafb90800000000000000
+      internalID: -7207201287702123850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burning_start_2_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b919222f9b43f7780800000000000000
+      internalID: -8683163583311081061
       vertices: []
       indices: 
       edges: []
@@ -151,8 +201,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -161,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pixil-frame-0 (25)_0: 3622384725455302239
+      burning_start_2_0: -6750827237315361544
+      burning_start_2_1: -7207201287702123850
+      burning_start_2_2: -8683163583311081061
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

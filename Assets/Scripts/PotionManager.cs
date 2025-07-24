@@ -48,19 +48,16 @@ public class PotionManager : MonoBehaviour
         transform.position = potionSnapOffscreen.position;
         aromaManager = FindFirstObjectByType<AromaType>();
         checklist = FindFirstObjectByType<ChecklistHandler>();
-        aromaDisplay.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnNewCustomer() //when bell is rung
     {
         GetRandomPotion(); 
         checklist.ResetChecklist(); //removes any filled-in checklist details from previous customer
+        
+        //reset inspection window text and aroma icons
+        inspectionText.text = "Let's take a closer look...";
+        aromaDisplay.SetActive(false);
         
         //change all images to match current potion
         GetComponentInChildren<Image>().sprite = currentPotion.GetPotionSprite();
@@ -132,5 +129,11 @@ public class PotionManager : MonoBehaviour
             Debug.LogError("# of aromas and # of displays mismatch");
         }
         
+    }
+
+    public void TastePotion()
+    {
+        aromaDisplay.SetActive(false);
+        inspectionText.text = $"{currentPotion.GetTasteEffect()}";
     }
 }

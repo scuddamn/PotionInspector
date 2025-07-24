@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 3ef658d907d3b4bba803615c1144806a
+guid: eb1fa1d33c05441d88fe83041e89680e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3622384725455302239
-    second: pixil-frame-0 (25)_0
+      213: 7134046945274800347
+    second: burning_start_3_0
+  - first:
+      213: 4699139824897847613
+    second: burning_start_3_1
+  - first:
+      213: 7804034492536878926
+    second: burning_start_3_2
+  - first:
+      213: 1185208005166597052
+    second: burning_start_3_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,13 +55,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
-  spriteBorder: {x: 16, y: 0, z: 17, w: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -126,23 +135,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixil-frame-0 (25)_0
+      name: burning_start_3_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 4
-        width: 28
-        height: 57
+        x: 5
+        y: 0
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5e609037bb454230800000000000000
-      internalID: 3622384725455302239
+      spriteID: bd8a01026e9310360800000000000000
+      internalID: 7134046945274800347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burning_start_3_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d317dec06c2b63140800000000000000
+      internalID: 4699139824897847613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burning_start_3_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e477e8ef5008d4c60800000000000000
+      internalID: 7804034492536878926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burning_start_3_3
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 0
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb387e4b664b27010800000000000000
+      internalID: 1185208005166597052
       vertices: []
       indices: 
       edges: []
@@ -151,8 +226,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -161,7 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pixil-frame-0 (25)_0: 3622384725455302239
+      burning_start_3_0: 7134046945274800347
+      burning_start_3_1: 4699139824897847613
+      burning_start_3_2: 7804034492536878926
+      burning_start_3_3: 1185208005166597052
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

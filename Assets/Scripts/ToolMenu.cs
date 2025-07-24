@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -19,8 +20,12 @@ public class ToolMenu : MonoBehaviour
     
     [Header("Movement Speed")]
     [SerializeField] private float moveSpeed = 1f;
+
+    [Header("Misc")] 
+    [SerializeField] private GameObject toolWarning;
     
     
+    private bool toolRemoved = false;
     private bool menuOpen = false;
 
     public bool MenuOpen()
@@ -31,7 +36,8 @@ public class ToolMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       // gameObject.transform.position = offscreenPosition.position; //ensure menu starts offscreen
+        toolRemoved = false;
+        // gameObject.transform.position = offscreenPosition.position; //ensure menu starts offscreen
     }
 
     public void OpenMenu()
@@ -47,8 +53,31 @@ public class ToolMenu : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Tool"))
+        {
+            toolRemoved = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Tool"))
+        {
+            toolRemoved = false;
+        }
+    }
+
     public void CloseMenu()
     {
+        if (toolRemoved)
+        {
+            toolWarning.SetActive(true);
+            return;
+        }
+        
+        toolWarning.SetActive(false);
         GetComponentInChildren<Button>().interactable = false; //once minimize button has been clicked, it cannot be clicked again
         transform.DOMove(offscreenPosition.position, moveSpeed); //menu slides offscreen
         menuButton.transform.DOMove(buttonReturn.position, moveSpeed); //menu button returns to screen

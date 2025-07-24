@@ -10,6 +10,7 @@ public class ScriptablePotions : ScriptableObject
     [TextArea(1, 3)]
     [SerializeField] private string potionName = "Potion name...";
     [Tooltip("Choose type based on color")] [SerializeField] private PotionType potionType;
+    [SerializeField] private Color liquidColor;
     [SerializeField] private Sprite potionSprite;
 
     [Header("Customer/Merchant Name")] 
@@ -40,6 +41,11 @@ public class ScriptablePotions : ScriptableObject
     public PotionMaker GetPotionCreator()
     {
         return alchemist;
+    }
+
+    public Color GetPotionColor()
+    {
+        return liquidColor;
     }
 
     public List<AromaType.AromaOptions> GetAromas()

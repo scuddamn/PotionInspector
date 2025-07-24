@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float messageDuration = 4f;
 
     private PotionManager potionManager;
+
+    public bool ChecklistOpen()
+    {
+        return checklistOpen;
+    }
     
     private void Awake()  //start game with menus offscreen
     { 

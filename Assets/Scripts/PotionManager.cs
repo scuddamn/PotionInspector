@@ -30,6 +30,7 @@ public class PotionManager : MonoBehaviour
 
     private bool hasPotion = false;
     private AromaType aromaManager;
+    private ChecklistHandler checklist;
 
     public bool HasPotion()
     {
@@ -46,6 +47,7 @@ public class PotionManager : MonoBehaviour
     {
         transform.position = potionSnapOffscreen.position;
         aromaManager = FindFirstObjectByType<AromaType>();
+        checklist = FindFirstObjectByType<ChecklistHandler>();
         aromaDisplay.SetActive(false);
     }
 
@@ -57,7 +59,9 @@ public class PotionManager : MonoBehaviour
 
     public void OnNewCustomer() //when bell is rung
     {
-        GetRandomPotion();
+        GetRandomPotion(); 
+        checklist.ResetChecklist(); //removes any filled-in checklist details from previous customer
+        
         //change all images to match current potion
         GetComponentInChildren<Image>().sprite = currentPotion.GetPotionSprite();
         potionInspectionIcon.GetComponent<Image>().sprite = currentPotion.GetPotionSprite();
@@ -84,7 +88,7 @@ public class PotionManager : MonoBehaviour
         hasPotion = false;
     }
 
-    void GetRandomPotion()
+    void GetRandomPotion() //choose random potion from serialized list of potion options
     {
         int random = Random.Range(0, potionOptions.Count);
         currentPotion = potionOptions[random];

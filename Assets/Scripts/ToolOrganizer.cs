@@ -2,42 +2,49 @@ using UnityEngine;
 
 public class ToolOrganizer : MonoBehaviour
 {
-    public GameObject toolWarning;
-    public bool toolRemoved = false;
-
-    private GameObject[] tools;
+   [SerializeField] private Transform toolHolder;
+   [SerializeField] private Transform toolMenu;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        tools = GameObject.FindGameObjectsWithTag("Tool");
+        
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Tool"))
         {
-            toolRemoved = true;
-            
-            foreach (var tool in tools)
-            {
-                GetComponent<Collider2D>().enabled = false; //when one tool is removed, make other tools unusable
-            }
-
-            other.GetComponent<Collider2D>().enabled = true; //make the currently removed tool still movable
+            print("tool removed");
+            other.GetComponent<ToolScript>().ChangeState(true);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Tool"))
         {
-            toolRemoved = false;
+            print("tool returned");
+            other.GetComponent<ToolScript>().ChangeState(false);
             
-            foreach (var tool in tools)
+        }
+    }
+
+    public void HandleTools()
+    {
+        var tools = GameObject.FindGameObjectsWithTag("Tool");
+        foreach (var tool in tools)
+        {
+            switch (tool.GetComponent<ToolScript>().OnDesk())
             {
-                GetComponent<Collider2D>().enabled = true; //make all tools draggable when all tools are present
+                case true:
+                    tool.transform.SetParent(toolHolder, true);
+                    break;
+                case false:
+                    tool.transform.SetParent(toolMenu, true);
+                    break;
             }
         }
+        
     }
 }

@@ -54,7 +54,6 @@ public class PotionManager : MonoBehaviour
 
     public void OnNewCustomer() //when bell is rung
     {
-        GetRandomPotion(); 
         checklist.ResetChecklist(); //removes any filled-in checklist details from previous customer
         
         //reset inspection window text and aroma icons
@@ -88,7 +87,7 @@ public class PotionManager : MonoBehaviour
         clock.IncrementTimeStage(); //advance day/night cycle animation to next time of day
     }
 
-    void GetRandomPotion() //choose random potion from serialized list of potion options
+    public void GetRandomPotion() //choose random potion from serialized list of potion options
     {
         int random = Random.Range(0, potionOptions.Count);
         currentPotion = potionOptions[random];

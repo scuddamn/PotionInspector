@@ -79,6 +79,7 @@ public class CustomerMovement : MonoBehaviour
         //call customer to booth
         if (helpingCustomer == false)
         {
+            potionManager.GetRandomPotion();
             transform.DOLocalPath(approachPath, approachDuration).OnWaypointChange(ApproachCallback);
             helpingCustomer = true;
         }
@@ -122,7 +123,7 @@ public class CustomerMovement : MonoBehaviour
                 case 2:
                     animator.SetBool(Waiting, true);
                     isWaiting = true;
-                    dialogueWindow.BeginInspection(); //formerly gave an error?? unclear why it stopped so keep an eye on it
+                    dialogueWindow.BeginInspection(); 
                     potionManager.PotionGiven();
                     print("p2");
                     break;

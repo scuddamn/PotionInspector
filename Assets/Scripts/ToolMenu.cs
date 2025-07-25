@@ -22,11 +22,12 @@ public class ToolMenu : MonoBehaviour
     [Header("Movement Speed")]
     [SerializeField] private float moveSpeed = 1f;
     
-    [Header("Tool Snap Locations")]
-    [SerializeField] Transform[] toolSpots;
+    //holding onto this in case i need these when i reparent tools to tool menu at end of day
+    // [Header("Tool Snap Locations")]
+    // [SerializeField] Transform[] toolSpots;
     
     private bool menuOpen = false;
-    
+    private ToolOrganizer toolOrganizer;
 
     public bool MenuOpen()
     {
@@ -36,7 +37,7 @@ public class ToolMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        toolOrganizer = GetComponentInChildren<ToolOrganizer>();
         // gameObject.transform.position = offscreenPosition.position; //ensure menu starts offscreen
     }
 
@@ -55,37 +56,17 @@ public class ToolMenu : MonoBehaviour
 
     public void CloseMenu()
     {
-        StartCoroutine(OrganizeTools());
-        
-    }
-
-    IEnumerator OrganizeTools()
-    {
-        var tools = GameObject.FindGameObjectsWithTag("Tool");
-        int index = 0;
-        foreach (var tool in tools)
-        {
-            tool.transform.DOMove(toolSpots[index].localPosition, 0.5f);
-            index++;
-            if (tools.Length != toolSpots.Length)
-            {
-                Debug.Log("not enough tool spots");
-            }
-        }
-
-        //yield return new WaitForSeconds(1f);
+        toolOrganizer.HandleTools();
         
         GetComponentInChildren<Button>().interactable = false; //once minimize button has been clicked, it cannot be clicked again
         transform.DOMove(offscreenPosition.position, moveSpeed); //menu slides offscreen
         menuButton.transform.DOMove(buttonReturn.position, moveSpeed); //menu button returns to screen
         menuOpen = false;
-        
-        
+
         foreach (Button button in hideableButtons) //re-enable interactability on buttons that were hidden by the menu
-        {
+        { 
             button.interactable = true;
         }
-
-        yield return new WaitForEndOfFrame();
     }
+    
 }

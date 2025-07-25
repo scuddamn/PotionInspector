@@ -1,8 +1,7 @@
-using System;
+
 using System.Collections;
 using DG.Tweening;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -71,7 +70,7 @@ public class GameManager : MonoBehaviour
     {
         if (inspectorOpen)
         { 
-            inspectorMenu.transform.DOMove(inspectorSnapOut.position, moveSpeed); //should i be doing (moveSpeed * Time.deltaTime)? tbd
+            inspectorMenu.transform.DOMove(inspectorSnapOut.position, moveSpeed); //should I be doing (moveSpeed * Time.deltaTime)? tbd
             inspectorOpen = false;
         } else Debug.Log("inspector already closed");
     }

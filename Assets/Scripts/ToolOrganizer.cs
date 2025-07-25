@@ -5,12 +5,6 @@ public class ToolOrganizer : MonoBehaviour
    [SerializeField] private Transform toolHolder;
    [SerializeField] private Transform toolMenu;
    [SerializeField] private GameObject minimizeButton;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     public void OnTriggerExit2D(Collider2D other)
     {

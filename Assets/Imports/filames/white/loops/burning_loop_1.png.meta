@@ -75,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -153,10 +153,10 @@ TextureImporter:
       name: burning_loop_1_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 0
-        width: 15
-        height: 15
+        width: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +175,10 @@ TextureImporter:
       name: burning_loop_1_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 15
-        width: 8
-        height: 9
+        x: 24
+        y: 0
+        width: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: burning_loop_1_2
       rect:
         serializedVersion: 2
-        x: 29
+        x: 48
         y: 0
-        width: 14
-        height: 23
+        width: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: burning_loop_1_3
       rect:
         serializedVersion: 2
-        x: 53
+        x: 72
         y: 0
-        width: 15
-        height: 23
+        width: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: burning_loop_1_4
       rect:
         serializedVersion: 2
-        x: 76
+        x: 96
         y: 0
-        width: 16
-        height: 20
+        width: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,10 +263,10 @@ TextureImporter:
       name: burning_loop_1_5
       rect:
         serializedVersion: 2
-        x: 101
+        x: 120
         y: 0
-        width: 15
-        height: 22
+        width: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +285,10 @@ TextureImporter:
       name: burning_loop_1_6
       rect:
         serializedVersion: 2
-        x: 124
+        x: 144
         y: 0
-        width: 15
-        height: 22
+        width: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,10 +307,10 @@ TextureImporter:
       name: burning_loop_1_7
       rect:
         serializedVersion: 2
-        x: 148
+        x: 168
         y: 0
-        width: 16
-        height: 20
+        width: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -325,33 +325,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: burning_loop_1_8
-      rect:
-        serializedVersion: 2
-        x: 173
-        y: 0
-        width: 16
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9acec548880c36f40800000000000000
-      internalID: 5720627644259429545
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b41cfb6dba0214a1987f9feffe3a6389
     internalID: 0
     vertices: []
     indices: 
@@ -359,7 +337,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":24.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       burning_loop_1_0: -6451659011051416826
       burning_loop_1_1: 5763944664088261270
@@ -369,7 +349,6 @@ TextureImporter:
       burning_loop_1_5: 4533643106053293943
       burning_loop_1_6: 2358241775649404834
       burning_loop_1_7: 3670861799719939002
-      burning_loop_1_8: 5720627644259429545
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

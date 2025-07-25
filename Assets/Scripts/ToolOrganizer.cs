@@ -4,6 +4,7 @@ public class ToolOrganizer : MonoBehaviour
 {
    [SerializeField] private Transform toolHolder;
    [SerializeField] private Transform toolMenu;
+   [SerializeField] private GameObject minimizeButton;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,11 +14,9 @@ public class ToolOrganizer : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Tool"))
-        {
             print("tool removed");
             other.GetComponent<ToolScript>().ChangeState(true);
-        }
+        
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -26,7 +25,6 @@ public class ToolOrganizer : MonoBehaviour
         {
             print("tool returned");
             other.GetComponent<ToolScript>().ChangeState(false);
-            
         }
     }
 
@@ -38,10 +36,11 @@ public class ToolOrganizer : MonoBehaviour
             switch (tool.GetComponent<ToolScript>().OnDesk())
             {
                 case true:
-                    tool.transform.SetParent(toolHolder, true);
+                    tool.transform.SetParent(toolHolder.transform, true);
                     break;
                 case false:
                     tool.transform.SetParent(toolMenu, true);
+                    minimizeButton.transform.SetAsLastSibling();
                     break;
             }
         }

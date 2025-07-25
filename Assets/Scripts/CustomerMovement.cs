@@ -79,7 +79,7 @@ public class CustomerMovement : MonoBehaviour
         //call customer to booth
         if (helpingCustomer == false)
         {
-            potionManager.GetRandomPotion();
+            potionManager.OnNewCustomer();
             transform.DOLocalPath(approachPath, approachDuration).OnWaypointChange(ApproachCallback);
             helpingCustomer = true;
         }

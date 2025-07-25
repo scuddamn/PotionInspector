@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PotionManager : MonoBehaviour
 {
@@ -32,6 +34,8 @@ public class PotionManager : MonoBehaviour
     private AromaType aromaManager;
     private ChecklistHandler checklist;
     private DayNightCycle clock;
+    private DropperTool dropper;
+    private CandleTool candle;
 
     public bool HasPotion()
     {
@@ -50,10 +54,13 @@ public class PotionManager : MonoBehaviour
         aromaManager = FindFirstObjectByType<AromaType>();
         checklist = FindFirstObjectByType<ChecklistHandler>();
         clock = FindFirstObjectByType<DayNightCycle>();
+        dropper = FindFirstObjectByType<DropperTool>();
+        candle = FindFirstObjectByType<CandleTool>();
     }
 
     public void OnNewCustomer() //when bell is rung
     {
+        GetRandomPotion();
         checklist.ResetChecklist(); //removes any filled-in checklist details from previous customer
         
         //reset inspection window text and aroma icons
@@ -72,6 +79,9 @@ public class PotionManager : MonoBehaviour
         potionName.text = $"{currentPotion.GetPotionName()}";
         alchemistName.text = $"{currentPotion.GetPotionCreator()}";
         
+        //candle flame changes
+        candle.GetFlameInfo();
+
     }
 
     public void PotionGiven() //customer gives player potion
@@ -87,7 +97,7 @@ public class PotionManager : MonoBehaviour
         clock.IncrementTimeStage(); //advance day/night cycle animation to next time of day
     }
 
-    public void GetRandomPotion() //choose random potion from serialized list of potion options
+    private void GetRandomPotion() //choose random potion from serialized list of potion options
     {
         int random = Random.Range(0, potionOptions.Count);
         currentPotion = potionOptions[random];
@@ -137,5 +147,13 @@ public class PotionManager : MonoBehaviour
     {
         aromaDisplay.SetActive(false);
         inspectionText.text = $"{currentPotion.GetTasteEffect()}";
+    }
+
+    private void OnMouseDown()
+    {
+        if (dropper.UsingDropper())
+        {
+            dropper.MakeDroplet();
+        }
     }
 }

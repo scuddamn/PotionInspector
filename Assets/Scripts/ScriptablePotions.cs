@@ -18,7 +18,7 @@ public class ScriptablePotions : ScriptableObject
     
     [Header("Testable attributes")]
     [SerializeField] private List<AromaType.AromaOptions> aromas = new List<AromaType.AromaOptions>(3);
-    [Tooltip("choose size + color of flame")][SerializeField] private Sprite magicFlame;
+    [Tooltip("choose size + color of flame")][SerializeField] private GameObject magicFlame;
     [SerializeField] private Color flameColor;
     [TextArea(1, 3)] [SerializeField] private string tasteEffect = "Describe the taste & effect of this potion...";
     [Tooltip("Check box if potion should be approved, leave blank if potion should be rejected")][SerializeField] private bool approvable;
@@ -54,7 +54,7 @@ public class ScriptablePotions : ScriptableObject
         return aromas;
     }
 
-    public Sprite GetFlameSprite()
+    public GameObject GetFlamePrefab()
     {
         return magicFlame;
     }

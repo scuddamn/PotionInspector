@@ -55,7 +55,6 @@ public class ToolMenu : MonoBehaviour
 
     public void CloseMenu()
     {
-        toolOrganizer.HandleTools();
         
         GetComponentInChildren<Button>().interactable = false; //once minimize button has been clicked, it cannot be clicked again
         transform.DOMove(offscreenPosition.position, moveSpeed); //menu slides offscreen

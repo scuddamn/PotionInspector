@@ -24,6 +24,8 @@ public class PotionManager : MonoBehaviour
     [Header("Checklist")] 
     [SerializeField] private TMP_Text potionName;
     [SerializeField] private TMP_Text alchemistName;
+
+    [Header("Tools")] [SerializeField] private GameObject dropDisplay;
     
     [Header("Potion Movement")]
     [SerializeField] private Transform potionSnapOffscreen;
@@ -32,10 +34,11 @@ public class PotionManager : MonoBehaviour
 
     private bool hasPotion = false;
     private AromaType aromaManager;
+    private PotionType typeManager;
     private ChecklistHandler checklist;
     private DayNightCycle clock;
-    private DropperTool dropper;
-    private CandleTool candle;
+    // private DropperTool dropper;
+    // private CandleTool candle;
 
     public bool HasPotion()
     {
@@ -52,10 +55,11 @@ public class PotionManager : MonoBehaviour
     {
         transform.position = potionSnapOffscreen.position;
         aromaManager = FindFirstObjectByType<AromaType>();
+        typeManager = FindFirstObjectByType<PotionType>();
         checklist = FindFirstObjectByType<ChecklistHandler>();
         clock = FindFirstObjectByType<DayNightCycle>();
-        dropper = FindFirstObjectByType<DropperTool>();
-        candle = FindFirstObjectByType<CandleTool>();
+        // dropper = FindFirstObjectByType<DropperTool>();
+        // candle = FindFirstObjectByType<CandleTool>();
     }
 
     public void OnNewCustomer() //when bell is rung
@@ -79,8 +83,9 @@ public class PotionManager : MonoBehaviour
         potionName.text = $"{currentPotion.GetPotionName()}";
         alchemistName.text = $"{currentPotion.GetPotionCreator()}";
         
-        //candle flame changes
-        candle.GetFlameInfo();
+        //tool changes
+        dropDisplay.SetActive(false);
+        
 
     }
 
@@ -143,17 +148,38 @@ public class PotionManager : MonoBehaviour
         
     }
 
+    public void DisplayDroplet()
+    {
+        var potionType = currentPotion.GetPotionType();
+        var typeSprite = typeManager.GetType(potionType);
+        dropDisplay.GetComponent<Image>().sprite = typeSprite;
+
+    }
+
+    public void DropSwitch()
+    {
+        if (dropDisplay.activeInHierarchy)
+        {
+            dropDisplay.SetActive(false);
+        }
+
+        if (dropDisplay.activeInHierarchy == false)
+        {
+            dropDisplay.SetActive(true);
+        }
+    }
+
     public void TastePotion()
     {
         aromaDisplay.SetActive(false);
         inspectionText.text = $"{currentPotion.GetTasteEffect()}";
     }
 
-    private void OnMouseDown()
-    {
-        if (dropper.UsingDropper())
-        {
-            dropper.MakeDroplet();
-        }
-    }
+    // private void OnMouseOver()
+    // {
+    //     if (dropper.UsingDropper() && Input.GetMouseButtonDown(1))
+    //     {
+    //         dropper.MakeDroplet();
+    //     }
+    // }
 }

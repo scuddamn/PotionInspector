@@ -9,8 +9,7 @@ public class ScriptablePotions : ScriptableObject
     [Header("Base Information")]
     [TextArea(1, 3)]
     [SerializeField] private string potionName = "Potion name...";
-    [Tooltip("Choose type based on color")] [SerializeField] private PotionType potionType;
-    [SerializeField] private Color liquidColor;
+    [Tooltip("Choose type based on color")] [SerializeField] private PotionType.TypeOptions potionType;
     [SerializeField] private Sprite potionSprite;
 
     [Header("Customer/Merchant Name")] 
@@ -20,7 +19,7 @@ public class ScriptablePotions : ScriptableObject
     [SerializeField] private List<AromaType.AromaOptions> aromas = new List<AromaType.AromaOptions>(3);
     [Tooltip("choose size + color of flame")][SerializeField] private GameObject magicFlame;
     [SerializeField] private Color flameColor;
-    [TextArea(1, 3)] [SerializeField] private string tasteEffect = "Describe the taste & effect of this potion...";
+    [TextArea(2, 4)] [SerializeField] private string tasteEffect = "Describe the taste & effect of this potion...";
     [Tooltip("Check box if potion should be approved, leave blank if potion should be rejected")][SerializeField] private bool approvable;
     
 
@@ -34,7 +33,7 @@ public class ScriptablePotions : ScriptableObject
         return potionSprite;
     }
 
-    public PotionType GetPotionType()
+    public PotionType.TypeOptions GetPotionType()
     {
         return potionType;
     }
@@ -42,11 +41,6 @@ public class ScriptablePotions : ScriptableObject
     public PotionMaker GetPotionCreator()
     {
         return alchemist;
-    }
-
-    public Color GetPotionColor()
-    {
-        return liquidColor;
     }
 
     public List<AromaType.AromaOptions> GetAromas()

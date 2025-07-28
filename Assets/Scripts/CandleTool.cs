@@ -32,12 +32,13 @@ public class CandleTool : MonoBehaviour
         flameColor = potionManager.CurrentPotion().GetFlameColor();
     }
 
-    private void OnMouseDown()
+    private void OnMouseOver()
     {
-        if (dropper.GotDrop())
+        if (dropper.GotDrop() && Input.GetMouseButtonDown(0))
         {
             Instantiate(flamePrefab, transform);
             GetComponentInChildren<Image>().color = flameColor;
+            dropper.LoseDroplet();
         }
     }
 }

@@ -27,7 +27,7 @@ public class ToolOrganizer : MonoBehaviour
             tool.transform.SetParent(toolHolder, false);
         }
 
-        var pos = tool.transform.position;
+        var pos = tool.transform.position; //?? never used?
 
     }
 

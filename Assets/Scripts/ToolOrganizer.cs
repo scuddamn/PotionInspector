@@ -4,7 +4,6 @@ public class ToolOrganizer : MonoBehaviour
 {
    [SerializeField] private RectTransform toolHolder;
    [SerializeField] private RectTransform toolMenu;
-   [SerializeField] private RectTransform menuArea;
    [SerializeField] private GameObject minimizeButton;
 
     public void OnTriggerExit2D(Collider2D other)

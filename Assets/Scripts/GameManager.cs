@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
 
     
 
-    IEnumerator ShowWarning()
+    public IEnumerator ShowWarning()
     {
         decorScroll.DOFade(1, messageFadeTime);
         messageText.DOFade(1, messageFadeTime);

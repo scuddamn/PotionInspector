@@ -1,15 +1,22 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DropperTool : MonoBehaviour
 {
     [SerializeField] private float dropperFollowSpeed = 0.5f;
-    private ToolScript thisTool;
+    [SerializeField] private GameObject droplet;
+    [SerializeField] private RectTransform offscreenSnap;
+    
     private PotionManager potionManager;
+    private GameManager gameManager;
+    private BookHover bookHover;
     private bool usingDropper = false;
     private Vector3 mousePosition;
     private bool gotDrop = false;
+    private Image dropImage;
+    private CandleTool candle;
 
     public bool GotDrop()
     {
@@ -24,21 +31,37 @@ public class DropperTool : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        thisTool = GetComponent<ToolScript>();
+        dropImage = droplet.GetComponent<Image>();
         potionManager = FindFirstObjectByType<PotionManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
+        bookHover = FindFirstObjectByType<BookHover>();
+        candle = FindFirstObjectByType<CandleTool>();
+        dropImage.enabled = false; //hide droplet
     }
 
-    private void OnMouseOver()
+    public void EquipDropper()
     {
-        if (!usingDropper && Input.GetMouseButtonDown(1) && thisTool.OnDesk())
+        if (potionManager.HasPotion())
         {
-            usingDropper = true;
-            GetComponent<Collider2D>().enabled = false;
-            GetComponent<Image>().raycastTarget = false;
+            switch (usingDropper)
+            {
+                case true:
+                    usingDropper = false;
+                    bookHover.ZoneOpen();
+                    transform.DOMove(offscreenSnap.position, 0.5f);
+                    break;
+                case false:
+                    usingDropper = true;
+                    bookHover.ZoneClose();
+                    break;
+            }
+        }
+        else if(!potionManager.HasPotion())
+        {
+            StartCoroutine(gameManager.ShowWarning());
         }
     }
     
-
     private void Update()
     {
         if (usingDropper)
@@ -50,19 +73,23 @@ public class DropperTool : MonoBehaviour
 
         if (usingDropper && Input.GetMouseButtonDown(1))
         {
-            
+            usingDropper = false;
+            transform.DOMove(offscreenSnap.position, 0.5f);
+            dropImage.enabled = false;
         }
     }
 
     public void MakeDroplet()
     {
-        potionManager.DisplayDroplet();
+        dropImage.sprite = potionManager.DisplayDroplet();
+        dropImage.enabled = true;
         gotDrop = true;
+        candle.GetFlameInfo();
     }
 
     public void LoseDroplet()
     {
-        GetComponentInChildren<Image>().enabled = false;
+        dropImage.enabled = false;
         gotDrop = false;
     }
 

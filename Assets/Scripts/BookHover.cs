@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class BookHover : MonoBehaviour
 {
-    [SerializeField] private GameObject toolHolder;
     private BookManager bookManager;
     private Collider2D hoverArea;
+    private bool hoverable = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,22 +14,22 @@ public class BookHover : MonoBehaviour
         bookManager = FindFirstObjectByType<BookManager>(); //get reference to the script on the book item
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ZoneClose()
     {
-        if (toolHolder.transform.childCount > 0)
-        {
-            hoverArea.enabled = false;
-        } else if (toolHolder.transform.childCount <= 0)
-        {
-            hoverArea.enabled = true;
-        }
+        hoverArea.enabled = false;
+        hoverable = false;
+    }
+
+    public void ZoneOpen()
+    {
+        hoverArea.enabled = true;
+        hoverable = true;
     }
 
     private void OnMouseEnter()
     { //while hovering over area
         
-        if (!bookManager.IsOpen())
+        if (hoverable && !bookManager.IsOpen())
         {
             bookManager.MoveToHover();
             print("hovering");
@@ -39,7 +39,7 @@ public class BookHover : MonoBehaviour
     private void OnMouseExit()
     { //when stopped hovering over area
         
-        if (!bookManager.IsOpen())
+        if (hoverable && !bookManager.IsOpen())
         {
             bookManager.MoveOffscreen();
             print("leaving hover");
@@ -48,7 +48,7 @@ public class BookHover : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!bookManager.IsOpen())
+        if (hoverable && !bookManager.IsOpen())
         {
             bookManager.MoveToOpen();
         }

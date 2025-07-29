@@ -24,8 +24,6 @@ public class PotionManager : MonoBehaviour
     [Header("Checklist")] 
     [SerializeField] private TMP_Text potionName;
     [SerializeField] private TMP_Text alchemistName;
-
-    [Header("Tools")] [SerializeField] private GameObject dropDisplay;
     
     [Header("Potion Movement")]
     [SerializeField] private Transform potionSnapOffscreen;
@@ -37,7 +35,7 @@ public class PotionManager : MonoBehaviour
     private PotionType typeManager;
     private ChecklistHandler checklist;
     private DayNightCycle clock;
-    // private DropperTool dropper;
+    private DropperTool dropper;
     // private CandleTool candle;
 
     public bool HasPotion()
@@ -58,7 +56,7 @@ public class PotionManager : MonoBehaviour
         typeManager = FindFirstObjectByType<PotionType>();
         checklist = FindFirstObjectByType<ChecklistHandler>();
         clock = FindFirstObjectByType<DayNightCycle>();
-        // dropper = FindFirstObjectByType<DropperTool>();
+        dropper = FindFirstObjectByType<DropperTool>();
         // candle = FindFirstObjectByType<CandleTool>();
     }
 
@@ -82,11 +80,6 @@ public class PotionManager : MonoBehaviour
         //checklist changes
         potionName.text = $"{currentPotion.GetPotionName()}";
         alchemistName.text = $"{currentPotion.GetPotionCreator()}";
-        
-        //tool changes
-        dropDisplay.SetActive(false);
-        
-
     }
 
     public void PotionGiven() //customer gives player potion
@@ -148,12 +141,11 @@ public class PotionManager : MonoBehaviour
         
     }
 
-    public void DisplayDroplet()
+    public Sprite DisplayDroplet()
     {
         var potionType = currentPotion.GetPotionType();
         var typeSprite = typeManager.GetType(potionType);
-        dropDisplay.GetComponent<Image>().sprite = typeSprite;
-
+        return typeSprite;
     }
 
     public void TastePotion()
@@ -162,11 +154,11 @@ public class PotionManager : MonoBehaviour
         inspectionText.text = $"{currentPotion.GetTasteEffect()}";
     }
 
-    // private void OnMouseOver()
-    // {
-    //     if (dropper.UsingDropper() && Input.GetMouseButtonDown(1))
-    //     {
-    //         dropper.MakeDroplet();
-    //     }
-    // }
+    private void OnMouseDown()
+    {
+        if (dropper.UsingDropper())
+        {
+            dropper.MakeDroplet();
+        }
+    }
 }

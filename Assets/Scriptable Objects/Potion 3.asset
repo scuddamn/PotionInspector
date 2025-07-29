@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potionName: Potion of Plant Growth
   potionType: 3
-  liquidColor: {r: 0.14150944, g: 0.5660378, b: 0.25571, a: 1}
   potionSprite: {fileID: 21300000, guid: 371c14313aa65438785f7e72be9ee3ed, type: 3}
   alchemist: 2
   aromas: 020000000400000001000000
-  magicFlame: {fileID: 7518065151566740802, guid: fc0e8c8af53ae4905817744713305ef9, type: 3}
+  magicFlame: {fileID: 2661082380420827267, guid: b805a54de3e1b40a9b3898e96ff29c13, type: 3}
   flameColor: {r: 0, g: 0.7490196, b: 1, a: 1}
   tasteEffect: Tastes like...dirt and sunshine?
   approvable: 1

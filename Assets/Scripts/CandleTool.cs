@@ -1,29 +1,53 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CandleTool : MonoBehaviour
 {
+    [SerializeField] private RectTransform offscreenSnap;
+    [SerializeField] private RectTransform onscreenSnap;
+    [SerializeField] private Transform flameHolder;
+
     private GameObject flamePrefab;
+    private GameObject currentFlame;
     private Color flameColor;
 
     private PotionManager potionManager;
+    private GameManager gameManager;
     private DropperTool dropper;
-    private ToolScript thisTool;
+    private bool candleIn = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         potionManager = FindFirstObjectByType<PotionManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
         dropper = FindFirstObjectByType<DropperTool>();
-        thisTool = GetComponentInParent<ToolScript>();
+        transform.position = offscreenSnap.position; //start object offscreen
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UseCandle() //called on button click
     {
-        
+        if (potionManager.HasPotion())
+        {
+            switch (candleIn)
+            {
+                case true:
+                    transform.DOMove(offscreenSnap.position, 0.5f);
+                    candleIn = false;
+                    break;
+                case false:
+                    transform.DOMove(onscreenSnap.position, 0.5f);
+                    candleIn = true;
+                    GetFlameInfo();
+                    break;
+            }
+        } else if (!potionManager.HasPotion())
+        {
+            StartCoroutine(gameManager.ShowWarning());
+        }
     }
 
     public void GetFlameInfo()
@@ -32,12 +56,18 @@ public class CandleTool : MonoBehaviour
         flameColor = potionManager.CurrentPotion().GetFlameColor();
     }
 
-    private void OnMouseOver()
+    private void OnMouseDown()
     {
-        if (dropper.GotDrop() && Input.GetMouseButtonDown(0))
+        if (dropper.GotDrop())
         {
-            Instantiate(flamePrefab, transform);
-            GetComponentInChildren<Image>().color = flameColor;
+
+            currentFlame = Instantiate(flamePrefab, flameHolder.position, Quaternion.identity, flameHolder);
+            var flameImage = currentFlame.GetComponentInChildren<Image>();
+            if (flameImage != null)
+            {
+                flameImage.color = flameColor;
+            }
+
             dropper.LoseDroplet();
         }
     }

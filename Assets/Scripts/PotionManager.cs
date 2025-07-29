@@ -156,19 +156,6 @@ public class PotionManager : MonoBehaviour
 
     }
 
-    public void DropSwitch()
-    {
-        if (dropDisplay.activeInHierarchy)
-        {
-            dropDisplay.SetActive(false);
-        }
-
-        if (dropDisplay.activeInHierarchy == false)
-        {
-            dropDisplay.SetActive(true);
-        }
-    }
-
     public void TastePotion()
     {
         aromaDisplay.SetActive(false);

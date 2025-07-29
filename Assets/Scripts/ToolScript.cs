@@ -1,7 +1,12 @@
+using System;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class ToolScript : MonoBehaviour
 {
+    [SerializeField] private RectTransform snapPosition;
+    
     private bool onDesk;
 
     public bool OnDesk()
@@ -19,5 +24,11 @@ public class ToolScript : MonoBehaviour
         };
     }
 
-   
+    public void OnMouseUpAsButton()
+    {
+        if (!onDesk)
+        {
+            transform.DOMove(snapPosition.position, 0.2f);
+        }
+    }
 }

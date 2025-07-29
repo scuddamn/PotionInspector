@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class ToolOrganizer : MonoBehaviour
 {
-   [SerializeField] private Transform toolHolder;
-   [SerializeField] private Transform toolMenu;
+   [SerializeField] private RectTransform toolHolder;
+   [SerializeField] private RectTransform toolMenu;
+   [SerializeField] private RectTransform menuArea;
    [SerializeField] private GameObject minimizeButton;
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (!Application.isPlaying || toolMenu == null || toolHolder == null)
+        if (gameObject.scene.isLoaded == false)
             return;
 
         if (!other.CompareTag("Tool"))
@@ -42,13 +43,13 @@ public class ToolOrganizer : MonoBehaviour
         
         var tool = other.gameObject;
         var toolScript = tool.GetComponent<ToolScript>();
+        var toolDrag = tool.GetComponent<ClickandDrag>();
         toolScript.ChangeState(false);
 
         if (tool.transform.parent != toolMenu)
         {
             tool.transform.SetParent(toolMenu, false);
         }
-
     }
 
     private void PrintAllToolStates()

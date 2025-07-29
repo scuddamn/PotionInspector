@@ -8749,6 +8749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 553037994}
   - component: {fileID: 553037995}
+  - component: {fileID: 553037996}
   m_Layer: 0
   m_Name: Seal
   m_TagString: Untagged
@@ -8801,7 +8802,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -8815,7 +8816,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1803060518}
   toggleTransition: 1
   graphic: {fileID: 1168970447}
@@ -8824,6 +8825,42 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!58 &553037996
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553037993}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -76.15109, y: 74.43344}
+  m_Radius: 102.989105
 --- !u!1 &560409982
 GameObject:
   m_ObjectHideFlags: 0
@@ -16907,7 +16944,7 @@ GameObject:
   - component: {fileID: 1352883428}
   m_Layer: 5
   m_Name: Stamp
-  m_TagString: Tool
+  m_TagString: Seal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16929,7 +16966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1113, y: -194}
+  m_AnchoredPosition: {x: -714, y: -194}
   m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1352883428
@@ -21651,6 +21688,7 @@ GameObject:
   - component: {fileID: 1795782214}
   - component: {fileID: 1795782213}
   - component: {fileID: 1795782212}
+  - component: {fileID: 1795782215}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -21737,6 +21775,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795782210}
   m_CullTransparentMesh: 1
+--- !u!114 &1795782215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795782210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16cbc85ba4d64a38bb50ba066847983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sealToggle: {fileID: 553037995}
 --- !u!1 &1800130649
 GameObject:
   m_ObjectHideFlags: 0

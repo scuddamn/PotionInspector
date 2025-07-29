@@ -26,7 +26,6 @@ public class ToolMenu : MonoBehaviour
     // [SerializeField] Transform[] toolSpots;
     
     private bool menuOpen = false;
-    private ToolOrganizer toolOrganizer;
 
     public bool MenuOpen()
     {
@@ -36,7 +35,7 @@ public class ToolMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        toolOrganizer = GetComponentInChildren<ToolOrganizer>();
+        
         // gameObject.transform.position = offscreenPosition.position; //ensure menu starts offscreen
     }
 

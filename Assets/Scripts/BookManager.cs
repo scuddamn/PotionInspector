@@ -8,8 +8,6 @@ using UnityEngine.UI;
 public class BookManager : MonoBehaviour
 {
     private static readonly int Open = Animator.StringToHash("open");
-    private static readonly int FadeIn = Animator.StringToHash("fadeIn");
-    private static readonly int FadeOut = Animator.StringToHash("fadeOut");
     private static readonly int TurnBack = Animator.StringToHash("turnBack");
     private static readonly int TurnNext = Animator.StringToHash("turnNext");
     private static readonly int Close = Animator.StringToHash("close");
@@ -19,14 +17,14 @@ public class BookManager : MonoBehaviour
     [SerializeField] private float moveSpeed = 1.0f;
     
     [Header("Book Menu")]
-    [SerializeField] private GameObject bookCanvas;
-    [SerializeField] private GameObject bookPage;
+    [SerializeField] private GameObject bookDisplay;
     [SerializeField] private float textFadeSpeed = 1f;
     [SerializeField] private TMP_Text[] pageText;
-    [SerializeField] private float pageFadeSpeed = 2f;
+    [SerializeField] private float pageFadeSpeed = 1f;
 
     private Animator animator;
-    
+    private BookHover hoverZone;
+    private int pageIndex = 0;
     private bool isOpen;
 
     public bool IsOpen()
@@ -42,6 +40,7 @@ public class BookManager : MonoBehaviour
         } //set initial text alpha value to 0, so the text can fade in upon opening the menu
         
         animator = GetComponentInChildren<Animator>();
+        hoverZone = FindFirstObjectByType<BookHover>();
     }
     
     public void MoveToOpen() //move the book to the 'activated' position on the desk
@@ -56,11 +55,10 @@ public class BookManager : MonoBehaviour
 
     void OpenMenu() //opens the book menu
     {
-        bookCanvas.SetActive(true);
-        bookPage.GetComponent<Animator>().SetTrigger(FadeIn); //page materializes with animation
+        bookDisplay.SetActive(true);
         FadeInText();
-        bookPage.GetComponentInChildren<Button>().interactable = true; //makes menu close button 'x' interactable
-        
+        bookDisplay.GetComponentInChildren<Button>().interactable = true; //makes menu close button 'x' interactable (and page turn buttons?)
+        hoverZone.enabled = false; //the hover area has no effect when the menu is open
     }
 
     void FadeInText() //page text fades in to full alpha
@@ -69,8 +67,6 @@ public class BookManager : MonoBehaviour
         {
             text.DOFade(1, textFadeSpeed);
         }
-        
-        
     }
     
     void FadeOutText() //page text fades from full alpha to 0 
@@ -93,28 +89,45 @@ public class BookManager : MonoBehaviour
 
     public void TurnPageNext()
     {
+        FadeOutText();
         animator.SetTrigger(TurnNext);
+        PageCountUp();
+        FadeInText();
+        
+    }
+
+    void PageCountUp()
+    {
+        pageIndex++;
+    }
+
+    void PageCountDown()
+    {
+        pageIndex--;
     }
 
     public void TurnPageBack()
     {
+        FadeOutText();
         animator.SetTrigger(TurnBack);
+        PageCountDown();
+        FadeInText();
     }
 
     void CloseBook() //book menu closes
     {
         animator.SetTrigger(Close);
         transform.DOScale(1f, 1f);
-        bookCanvas.SetActive(false);
+        bookDisplay.SetActive(false);
         isOpen = false;
+        hoverZone.enabled = true; //the hover area will function again once the menu is closed
         MoveOffscreen();
     }
 
     public void LeaveMenu() //menu closing process begins
     {
-        bookPage.GetComponentInChildren<Button>().interactable = false; //once the 'x' button is pressed to close the menu, it cannot be pressed again
+        bookDisplay.GetComponentInChildren<Button>().interactable = false; //once the 'x' button is pressed to close the menu, it cannot be pressed again
         FadeOutText();
-        bookPage.GetComponent<Animator>().SetTrigger(FadeOut); //animation makes page disappear
         Invoke(nameof(CloseBook), pageFadeSpeed);
     }
     

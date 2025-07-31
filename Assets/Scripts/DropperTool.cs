@@ -11,6 +11,7 @@ public class DropperTool : MonoBehaviour
     
     private PotionManager potionManager;
     private GameManager gameManager;
+    private AudioManager audioManager;
     private BookHover bookHover;
     private bool usingDropper = false;
     private Vector3 mousePosition;
@@ -34,6 +35,7 @@ public class DropperTool : MonoBehaviour
         dropImage = droplet.GetComponent<Image>();
         potionManager = FindFirstObjectByType<PotionManager>();
         gameManager = FindFirstObjectByType<GameManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         bookHover = FindFirstObjectByType<BookHover>();
         candle = FindFirstObjectByType<CandleTool>();
         dropImage.enabled = false; //hide droplet
@@ -83,6 +85,7 @@ public class DropperTool : MonoBehaviour
     {
         dropImage.sprite = potionManager.DisplayDroplet();
         dropImage.enabled = true;
+        audioManager.GetDroplet();
         gotDrop = true;
         candle.GetFlameInfo();
     }

@@ -15,6 +15,7 @@ public class CandleTool : MonoBehaviour
 
     private PotionManager potionManager;
     private GameManager gameManager;
+    private AudioManager audioManager;
     private DropperTool dropper;
     private bool candleIn = false;
     
@@ -23,6 +24,7 @@ public class CandleTool : MonoBehaviour
     {
         potionManager = FindFirstObjectByType<PotionManager>();
         gameManager = FindFirstObjectByType<GameManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         dropper = FindFirstObjectByType<DropperTool>();
         transform.position = offscreenSnap.position; //start object offscreen
 
@@ -62,6 +64,7 @@ public class CandleTool : MonoBehaviour
         {
 
             currentFlame = Instantiate(flamePrefab, flameHolder.position, Quaternion.identity, flameHolder);
+            audioManager.CandleSFX();
             var flameImage = currentFlame.GetComponentInChildren<Image>();
             if (flameImage != null)
             {

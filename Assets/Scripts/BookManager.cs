@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -24,6 +23,7 @@ public class BookManager : MonoBehaviour
 
     private Animator animator;
     private BookHover hoverZone;
+    private AudioManager audioManager;
     private int pageIndex = 0;
     private bool isOpen;
 
@@ -41,12 +41,14 @@ public class BookManager : MonoBehaviour
         
         animator = GetComponentInChildren<Animator>();
         hoverZone = FindFirstObjectByType<BookHover>();
+        audioManager = FindFirstObjectByType<AudioManager>();
     }
     
     public void MoveToOpen() //move the book to the 'activated' position on the desk
     {
             transform.DOMove(snapPositions[2].transform.position, moveSpeed);
             animator.SetTrigger(Open);
+            audioManager.OpenBookSFX();
             transform.DOScale(2.1f, moveSpeed);
             isOpen = true;
             Invoke(nameof(OpenMenu), 1f);
@@ -91,9 +93,9 @@ public class BookManager : MonoBehaviour
     {
         FadeOutText();
         animator.SetTrigger(TurnNext);
+        audioManager.PageTurnSFX();
         PageCountUp();
         FadeInText();
-        
     }
 
     void PageCountUp()
@@ -110,6 +112,7 @@ public class BookManager : MonoBehaviour
     {
         FadeOutText();
         animator.SetTrigger(TurnBack);
+        audioManager.PageTurnSFX();
         PageCountDown();
         FadeInText();
     }
@@ -117,6 +120,7 @@ public class BookManager : MonoBehaviour
     void CloseBook() //book menu closes
     {
         animator.SetTrigger(Close);
+        audioManager.CloseBookSFX();
         transform.DOScale(1f, 1f);
         bookDisplay.SetActive(false);
         isOpen = false;

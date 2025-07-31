@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float messageDuration = 4f;
 
     private PotionManager potionManager;
+    private AudioManager audioManager;
 
     public bool ChecklistOpen()
     {
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         inspectorMenu.transform.position = inspectorSnapOut.position;
         checklistMenu.transform.position = checklistSnapOut.position;
         potionManager = FindFirstObjectByType<PotionManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
     }
 
     private void Start()
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
         if (potionManager.HasPotion() && !inspectorOpen)
         {
             inspectorMenu.transform.DOMove(inspectorSnapIn.position, moveSpeed);
+            audioManager.MenuSFX();
             inspectorOpen = true;
             
         } else if (inspectorOpen)
@@ -71,6 +74,7 @@ public class GameManager : MonoBehaviour
         if (inspectorOpen)
         { 
             inspectorMenu.transform.DOMove(inspectorSnapOut.position, moveSpeed); //should I be doing (moveSpeed * Time.deltaTime)? tbd
+            audioManager.MenuSFX();
             inspectorOpen = false;
         } else Debug.Log("inspector already closed");
     }
@@ -80,6 +84,7 @@ public class GameManager : MonoBehaviour
         if (!checklistOpen && potionManager.HasPotion())
         {
             checklistMenu.transform.DOMove(checklistSnapIn.position, moveSpeed);
+            audioManager.PaperSFX();
             checklistOpen = true;
         } else if (checklistOpen)
         {
@@ -97,6 +102,7 @@ public class GameManager : MonoBehaviour
         if (checklistOpen)
         {
             checklistMenu.transform.DOMove(checklistSnapOut.position, moveSpeed);
+            audioManager.PaperSFX();
             Cursor.SetCursor(null, Vector2.down, CursorMode.Auto);
             checklistOpen = false;
         } else Debug.Log("checklist already closed");

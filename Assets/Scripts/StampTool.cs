@@ -16,6 +16,7 @@ public class StampTool : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        
     }
 
     public void StampIt()

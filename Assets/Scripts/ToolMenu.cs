@@ -21,11 +21,8 @@ public class ToolMenu : MonoBehaviour
     [Header("Movement Speed")]
     [SerializeField] private float moveSpeed = 1f;
     
-    //holding onto this in case i need these when i reparent tools to tool menu at end of day
-    // [Header("Tool Snap Locations")]
-    // [SerializeField] Transform[] toolSpots;
-    
     private bool menuOpen = false;
+    private AudioManager audioManager;
 
     public bool MenuOpen()
     {
@@ -35,8 +32,7 @@ public class ToolMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-        // gameObject.transform.position = offscreenPosition.position; //ensure menu starts offscreen
+        audioManager = FindFirstObjectByType<AudioManager>();
     }
 
     public void OpenMenu()
@@ -44,6 +40,7 @@ public class ToolMenu : MonoBehaviour
         GetComponentInChildren<Button>().interactable = true; //make minimize button interactable
         menuButton.transform.DOMove(buttonHide.position, moveSpeed); //move initial menu button offscreen
         transform.DOMove(openPosition.position, moveSpeed); //menu slides into frame
+        audioManager.MenuSFX();
         menuOpen = true;
         
         foreach (Button button in hideableButtons) //make the buttons that get hidden by the open menu NOT interactable to prevent misclicks
@@ -58,6 +55,7 @@ public class ToolMenu : MonoBehaviour
         GetComponentInChildren<Button>().interactable = false; //once minimize button has been clicked, it cannot be clicked again
         transform.DOMove(offscreenPosition.position, moveSpeed); //menu slides offscreen
         menuButton.transform.DOMove(buttonReturn.position, moveSpeed); //menu button returns to screen
+        audioManager.MenuSFX();
         menuOpen = false;
 
         foreach (Button button in hideableButtons) //re-enable interactability on buttons that were hidden by the menu

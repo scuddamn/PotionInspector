@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
@@ -34,9 +35,9 @@ public class PotionManager : MonoBehaviour
     private AromaType aromaManager;
     private PotionType typeManager;
     private ChecklistHandler checklist;
+    private AudioManager audioManager;
     private DayNightCycle clock;
     private DropperTool dropper;
-    // private CandleTool candle;
 
     public bool HasPotion()
     {
@@ -54,10 +55,10 @@ public class PotionManager : MonoBehaviour
         transform.position = potionSnapOffscreen.position;
         aromaManager = FindFirstObjectByType<AromaType>();
         typeManager = FindFirstObjectByType<PotionType>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         checklist = FindFirstObjectByType<ChecklistHandler>();
         clock = FindFirstObjectByType<DayNightCycle>();
         dropper = FindFirstObjectByType<DropperTool>();
-        // candle = FindFirstObjectByType<CandleTool>();
     }
 
     public void OnNewCustomer() //when bell is rung
@@ -82,9 +83,16 @@ public class PotionManager : MonoBehaviour
         alchemistName.text = $"{currentPotion.GetPotionCreator()}";
     }
 
+    IEnumerator PotionSounds()
+    {
+        yield return new WaitForSeconds(moveSpeed - 0.2f);
+        audioManager.PotionClink();
+    }
+
     public void PotionGiven() //customer gives player potion
     {
         transform.DOMove(potionSnapDesk.position, moveSpeed);
+        StartCoroutine(PotionSounds());
         hasPotion = true;
     }
 

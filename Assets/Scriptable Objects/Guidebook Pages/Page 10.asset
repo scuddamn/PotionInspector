@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211f13351bca74eaf946fc0fee9069b8, type: 3}
+  m_Name: Page 10
+  m_EditorClassIdentifier: 
+  pageIndex: 10
+  titleL: Magical Potions
+  bodyL: Magical potions are mysterious and powerful. They can create effects like
+    shapeshifting, teleportation, or mind-reading. These potions should always have
+    METALLIC or SULFURIC notes in their aromas.
+  titleR: Magical Potions
+  bodyR: 'If a Magical potion burns ANY COLOR other than white on the Gleaning Candle,
+    it is too dangerous to sell. '

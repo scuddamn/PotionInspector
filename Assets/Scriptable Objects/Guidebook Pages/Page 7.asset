@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211f13351bca74eaf946fc0fee9069b8, type: 3}
+  m_Name: Page 7
+  m_EditorClassIdentifier: 
+  pageIndex: 7
+  titleL: Recovery Potions
+  bodyL: 'Pay attention the COLOR of the flame when testing Recovery potions with
+    the Gleaning Candle to determine what sort of Recovery effects it provides.
+
+    If
+    your flame burns BLUE, it restores Mana.
+
+    If your flame burns GREEN, it restores
+    Stamina.
+
+    If the flame burns RED, it restores Health.
+
+'
+  titleR: Recovery Potions
+  bodyR: 'NOTE: Poisons fall under this category! Be careful!
+
+    If a Recovery
+    potion smells FISHY, it is a POISON! Instead of restoring health/mana/stamina,
+    it will drain a consumer''s health/mana/stamina.'

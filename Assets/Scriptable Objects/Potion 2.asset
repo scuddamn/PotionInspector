@@ -20,4 +20,5 @@ MonoBehaviour:
   magicFlame: {fileID: 2638214205101445928, guid: ab730ad2f14dd40978906e8a1f035b29, type: 3}
   flameColor: {r: 1, g: 0.8431373, b: 0, a: 1}
   tasteEffect: Ugh it does NOT taste good. You feel slightly stronger, somehow.
+  actualPotion: Potion of Size
   approvable: 0

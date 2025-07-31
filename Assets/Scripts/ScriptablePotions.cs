@@ -20,6 +20,8 @@ public class ScriptablePotions : ScriptableObject
     [Tooltip("choose size + color of flame")][SerializeField] private GameObject magicFlame;
     [SerializeField] private Color flameColor;
     [TextArea(2, 4)] [SerializeField] private string tasteEffect = "Describe the taste & effect of this potion...";
+
+    [TextArea(1, 3)] [SerializeField] private string actualPotion = "ACTUAL Potion name...";
     [Tooltip("Check box if potion should be approved, leave blank if potion should be rejected")][SerializeField] private bool approvable;
     
 
@@ -66,6 +68,11 @@ public class ScriptablePotions : ScriptableObject
     public bool IsApprovable()
     {
         return approvable;
+    }
+
+    public string GetActualPotion()
+    {
+        return actualPotion;
     }
     
     

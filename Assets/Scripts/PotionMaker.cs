@@ -5,6 +5,6 @@ public enum PotionMaker
     Lucille,
     Jeremy,
     LadyGrey,
-    Phlebotomus
+    SirGeoffrey
     
 }

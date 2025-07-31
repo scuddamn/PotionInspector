@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211f13351bca74eaf946fc0fee9069b8, type: 3}
+  m_Name: Page 4
+  m_EditorClassIdentifier: 
+  pageIndex: 4
+  titleL: Potion Strength
+  bodyL: 'The strength of a potion can vary from weak (minimal effect) to strong
+    (maximum effect). You have been provided with a Gleaning Candle (one of your
+    TOOLS), which can tell you how strong a potion is.
+
+    Just place a drop of
+    the potion onto the candle and look at the flame! (Pipette also included in your
+    TOOLS)'
+  titleR: Potion Strength
+  bodyR: 'Tall and skinny flames means the potion is WEAK
+
+    Average flames indicate
+    the potion is NORMAL
+
+    Wide or chunky flames appear when the potion is STRONG
+
+'

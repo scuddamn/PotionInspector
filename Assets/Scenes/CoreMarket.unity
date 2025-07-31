@@ -1982,9 +1982,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 251866220}
-        m_TargetAssemblyTypeName: BookManager, Assembly-CSharp
-        m_MethodName: TurnPageBack
+      - m_Target: {fileID: 1476469777}
+        m_TargetAssemblyTypeName: GuidebookManager, Assembly-CSharp
+        m_MethodName: TurnToPrevPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4934,12 +4934,6 @@ MonoBehaviour:
   - {fileID: 1789585178}
   moveSpeed: 0.5
   bookDisplay: {fileID: 1476469772}
-  textFadeSpeed: 1
-  pageText:
-  - {fileID: 1083218973}
-  - {fileID: 1840776654}
-  - {fileID: 760227929}
-  - {fileID: 1585942944}
   pageFadeSpeed: 0.5
 --- !u!1 &254009770
 GameObject:
@@ -12096,7 +12090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &926249435
 Transform:
   m_ObjectHideFlags: 0
@@ -18531,6 +18525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1476469773}
   - component: {fileID: 1476469776}
+  - component: {fileID: 1476469777}
   m_Layer: 5
   m_Name: OpenBook
   m_TagString: Untagged
@@ -18572,6 +18567,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476469772}
   m_CullTransparentMesh: 1
+--- !u!114 &1476469777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476469772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05101f529cf8472493c14e828fa15ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftTitle: {fileID: 760227929}
+  leftBodyText: {fileID: 1083218973}
+  rightTitle: {fileID: 1585942944}
+  rightBodyText: {fileID: 1840776654}
+  pages:
+  - {fileID: 11400000, guid: fe87cb8b68cf846b8b25c693861e1f65, type: 2}
+  - {fileID: 11400000, guid: 2c8de880c72ba4116a386ded9065f688, type: 2}
+  pageText:
+  - {fileID: 760227929}
+  - {fileID: 1083218973}
+  - {fileID: 1585942944}
+  - {fileID: 1840776654}
+  textFadeSpeed: 0.5
+  pageTurnSpeed: 0.5
 --- !u!1 &1487129106
 GameObject:
   m_ObjectHideFlags: 0
@@ -23226,9 +23247,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 251866220}
-        m_TargetAssemblyTypeName: BookManager, Assembly-CSharp
-        m_MethodName: TurnPageNext
+      - m_Target: {fileID: 1476469777}
+        m_TargetAssemblyTypeName: GuidebookManager, Assembly-CSharp
+        m_MethodName: TurnToNextPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

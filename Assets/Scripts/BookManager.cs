@@ -17,14 +17,13 @@ public class BookManager : MonoBehaviour
     
     [Header("Book Menu")]
     [SerializeField] private GameObject bookDisplay;
-    [SerializeField] private float textFadeSpeed = 1f;
-    [SerializeField] private TMP_Text[] pageText;
     [SerializeField] private float pageFadeSpeed = 1f;
 
     private Animator animator;
     private BookHover hoverZone;
     private AudioManager audioManager;
-    private int pageIndex = 0;
+    private GuidebookManager pageGuide;
+    
     private bool isOpen;
 
     public bool IsOpen()
@@ -34,14 +33,10 @@ public class BookManager : MonoBehaviour
     
     void Start()
     {
-        foreach (var text in pageText)
-        {
-            text.alpha = 0;
-        } //set initial text alpha value to 0, so the text can fade in upon opening the menu
-        
         animator = GetComponentInChildren<Animator>();
         hoverZone = FindFirstObjectByType<BookHover>();
         audioManager = FindFirstObjectByType<AudioManager>();
+        pageGuide = bookDisplay.GetComponent<GuidebookManager>();
     }
     
     public void MoveToOpen() //move the book to the 'activated' position on the desk
@@ -52,31 +47,14 @@ public class BookManager : MonoBehaviour
             transform.DOScale(2.1f, moveSpeed);
             isOpen = true;
             Invoke(nameof(OpenMenu), 1f);
-            
     }
 
     void OpenMenu() //opens the book menu
     {
         bookDisplay.SetActive(true);
-        FadeInText();
+        pageGuide.OnBookOpen();
         bookDisplay.GetComponentInChildren<Button>().interactable = true; //makes menu close button 'x' interactable (and page turn buttons?)
         hoverZone.enabled = false; //the hover area has no effect when the menu is open
-    }
-
-    void FadeInText() //page text fades in to full alpha
-    {
-        foreach (var text in pageText)
-        {
-            text.DOFade(1, textFadeSpeed);
-        }
-    }
-    
-    void FadeOutText() //page text fades from full alpha to 0 
-    {
-        foreach (var text in pageText)
-        {
-            text.DOFade(0, textFadeSpeed);
-        }
     }
     
     public void MoveOffscreen() //moves book offscreen to initial position
@@ -91,30 +69,14 @@ public class BookManager : MonoBehaviour
 
     public void TurnPageNext()
     {
-        FadeOutText();
         animator.SetTrigger(TurnNext);
         audioManager.PageTurnSFX();
-        PageCountUp();
-        FadeInText();
-    }
-
-    void PageCountUp()
-    {
-        pageIndex++;
-    }
-
-    void PageCountDown()
-    {
-        pageIndex--;
     }
 
     public void TurnPageBack()
     {
-        FadeOutText();
         animator.SetTrigger(TurnBack);
         audioManager.PageTurnSFX();
-        PageCountDown();
-        FadeInText();
     }
 
     void CloseBook() //book menu closes
@@ -131,7 +93,7 @@ public class BookManager : MonoBehaviour
     public void LeaveMenu() //menu closing process begins
     {
         bookDisplay.GetComponentInChildren<Button>().interactable = false; //once the 'x' button is pressed to close the menu, it cannot be pressed again
-        FadeOutText();
+        pageGuide.OnBookClose();
         Invoke(nameof(CloseBook), pageFadeSpeed);
     }
     

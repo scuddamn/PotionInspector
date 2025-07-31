@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d23748650e1024f3487c4e95e5e5ecc3, type: 3}
-  m_Name: Potion 1
+  m_Name: Potion 8
   m_EditorClassIdentifier: 
-  potionName: Potion of Healing
-  potionType: 0
-  potionSprite: {fileID: 21300000, guid: dc74f05dffe3f47c487d1c2507473ff0, type: 3}
-  alchemist: 0
-  aromas: 020000000100000005000000
+  potionName: Strong Potion of Resist Fire
+  potionType: 3
+  potionSprite: {fileID: 21300000, guid: 6d7169215312e400eb94b62a6d791805, type: 3}
+  alchemist: 3
+  aromas: 010000000500000004000000
   magicFlame: {fileID: 5679735082660687095, guid: d4e47684eb9164515b1eb3dba47dc6de, type: 3}
-  flameColor: {r: 0.78431374, g: 0, b: 0.0155202085, a: 1}
-  tasteEffect: It's bitter! But your headache is gone...
-  actualPotion: Strong Potion of Healing
-  approvable: 1
+  flameColor: {r: 1, g: 0.5490196, b: 0, a: 1}
+  tasteEffect: Tastes like hot peppers and leaves your mouth sore
+  actualPotion: Strong Potion of Fire Weakness
+  approvable: 0

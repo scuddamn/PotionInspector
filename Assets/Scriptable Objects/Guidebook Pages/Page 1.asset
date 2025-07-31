@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211f13351bca74eaf946fc0fee9069b8, type: 3}
+  m_Name: Page 1
+  m_EditorClassIdentifier: 
+  pageIndex: 1
+  titleL: Introduction
+  bodyL: 'Welcome to the Potion Market: the largest purveyor of alchemical goods
+    this side of where we are! Demand is getting higher lately, so we put out a call
+    to every alchemist in the land, and every day, they show up with potions to sell! '
+  titleR: Introduction
+  bodyR: "\u2026Unfortunately, this has led to a massive increase in potion-adjacent
+    deaths! After last month, when some of our customers allegedly exploded, we formed
+    the Potion and Elixir Consumer Safety Association (PECSA) to inspect every single
+    potion before it can be sold! Congratulations to you as our newest Potion Inspector!
+    Thanks for helping us keep our customers safe and happy (and alive)!"

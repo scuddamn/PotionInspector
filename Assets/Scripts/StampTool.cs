@@ -10,13 +10,15 @@ public class StampTool : MonoBehaviour
     [SerializeField] private Toggle sealToggle;
     
     private Animator animator;
+    private AudioManager audioManager;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponent<Animator>();
-        
+        audioManager = FindFirstObjectByType<AudioManager>();
+
     }
 
     public void StampIt()
@@ -27,5 +29,10 @@ public class StampTool : MonoBehaviour
     public void Stamped()
     {
         sealToggle.isOn = true;
+    }
+
+    public void StampSound()
+    {
+        audioManager.StampSFX();
     }
 }

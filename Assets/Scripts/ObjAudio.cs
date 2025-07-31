@@ -9,11 +9,11 @@ public class ObjAudio : MonoBehaviour
     [Header("Potion")] [SerializeField] private AudioClip potionClink;
 
     [Header("Tools")]
-    [SerializeField] private AudioClip[] toolPickUpSFX;
     [SerializeField] private AudioClip dropperSFX;
     [SerializeField] private AudioClip stampSound;
     [SerializeField] private AudioClip lightCandleSFX;
-
+    [SerializeField] private AudioClip[] toolPickUpSFX;
+    
     private int randomIndex;
     private AudioSource sfxAudio;
     

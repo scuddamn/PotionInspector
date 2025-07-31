@@ -4940,7 +4940,7 @@ MonoBehaviour:
   - {fileID: 1840776654}
   - {fileID: 760227929}
   - {fileID: 1585942944}
-  pageFadeSpeed: 1.5
+  pageFadeSpeed: 0.5
 --- !u!1 &254009770
 GameObject:
   m_ObjectHideFlags: 0
@@ -20304,8 +20304,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: edc40d5855a1d42d6a38a82904c61536, type: 3}
   - {fileID: 8300000, guid: 198c3b5aa270b403797997c7002b3166, type: 3}
   - {fileID: 8300000, guid: fa2f92bc44f1744a98e51772abb4ae27, type: 3}
-  sniffSound: {fileID: 0}
-  tasteSound: {fileID: 0}
+  sniffSound: {fileID: 8300000, guid: d290efe55d79f4839824295db8d1b4b9, type: 3}
+  tasteSound: {fileID: 8300000, guid: 8d8dbddf37f98409e8273e7897ebe347, type: 3}
 --- !u!114 &1659921483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20458,13 +20458,13 @@ MonoBehaviour:
   bellDropSFX: {fileID: 8300000, guid: f01d2db3311a545eb989ea5e37b0200b, type: 3}
   bellRing: {fileID: 8300000, guid: 543ebf8b9fa8a49fcb1a1eff250257f4, type: 3}
   potionClink: {fileID: 8300000, guid: c5ed303cdb92a46e4abb989046313a1d, type: 3}
+  dropperSFX: {fileID: 8300000, guid: 995d7d0223a3c4133aa287ad07cd8af2, type: 3}
+  stampSound: {fileID: 8300000, guid: 3e9417570e8814a1a9beaa6de0f98a9c, type: 3}
+  lightCandleSFX: {fileID: 8300000, guid: aed83df7378cb4c27abf929ecac3447e, type: 3}
   toolPickUpSFX:
   - {fileID: 8300000, guid: 8a5116ff7bd7144ec88732f2ad591924, type: 3}
   - {fileID: 8300000, guid: f5e099abeeb3a49618f7de5fb20969e5, type: 3}
   - {fileID: 8300000, guid: 4a606fc5ffe4c4828aa32008d1af2958, type: 3}
-  dropperSFX: {fileID: 8300000, guid: 995d7d0223a3c4133aa287ad07cd8af2, type: 3}
-  stampSound: {fileID: 8300000, guid: 3e9417570e8814a1a9beaa6de0f98a9c, type: 3}
-  lightCandleSFX: {fileID: 8300000, guid: aed83df7378cb4c27abf929ecac3447e, type: 3}
 --- !u!1 &1724783232
 GameObject:
   m_ObjectHideFlags: 0

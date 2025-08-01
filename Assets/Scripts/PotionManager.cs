@@ -107,6 +107,7 @@ public class PotionManager : MonoBehaviour
     {
         int random = Random.Range(0, potionOptions.Count);
         currentPotion = potionOptions[random];
+        potionOptions.Remove(currentPotion);
     }
 
     public void InspectPotion() //colorblind-friendly inspection method that describes the potion color

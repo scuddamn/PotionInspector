@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -118,6 +119,16 @@ public class GameManager : MonoBehaviour
         decorScroll.DOFade(0, messageFadeTime);
         messageText.DOFade(0, messageFadeTime);
         yield return new WaitForSeconds(0.5f);
+    }
+
+    public void QuitGame()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 0);
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     

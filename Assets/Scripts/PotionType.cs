@@ -7,11 +7,11 @@ public class PotionType : MonoBehaviour
 
     public enum TypeOptions 
     {
-        RecoveryRed,
-        BodyYellow,
-        MindBlue,
-        ElementalGreen,
-        MagicPurple,
+        Red,
+        Yellow,
+        Blue,
+        Green,
+        Purple,
     }
 
     [SerializeField] private Sprite[] typeColors;

@@ -19,8 +19,6 @@ public class PageSO : ScriptableObject
 
     [TextArea(2, 10)] 
     [SerializeField] private string bodyR = "Right page body text...";
-    
-    TMP_TextAlignmentDrawer
 
 
     public int GetPageNumber()

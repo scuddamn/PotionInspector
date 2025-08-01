@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageIndex: 8
   titleL: Elemental Potions
-  bodyL: "The COLOR of your Gleaning Candle's flame when testing an Elemental potion
-    will tell you which element that potion affects! \nORANGE = fire\nBLUE = ice\nGREEN
-    = earth\nPURPLE = lightning\nThe AROMA of an Elemental potion tells you whether
-    the potion provides elemental RESISTANCE or elemental WEAKNESS."
+  bodyL: "<align=\"left\">The COLOR of your Gleaning Candle's flame when testing
+    an Elemental potion will tell you which element that potion affects! \nORANGE
+    = fire\nBLUE = ice\nGREEN = earth\nPURPLE = lightning\nThe AROMA of an Elemental
+    potion tells you whether the potion provides elemental RESISTANCE or elemental
+    WEAKNESS."
   titleR: Elemental Potions
-  bodyR: 'Potions that provide RESISTANCE smell METALLIC or HERBAL.
+  bodyR: '<align="left">Potions that provide RESISTANCE smell METALLIC or HERBAL.
 
     Potions
     that provide WEAKNESS smell FISHY or SULFURIC.

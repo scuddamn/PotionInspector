@@ -18,6 +18,7 @@ public class DropperTool : MonoBehaviour
     private bool gotDrop = false;
     private Image dropImage;
     private CandleTool candle;
+    private StampTool stamp;
 
     public bool GotDrop()
     {
@@ -38,6 +39,7 @@ public class DropperTool : MonoBehaviour
         audioManager = FindFirstObjectByType<AudioManager>();
         bookHover = FindFirstObjectByType<BookHover>();
         candle = FindFirstObjectByType<CandleTool>();
+        stamp = FindFirstObjectByType<StampTool>();
         dropImage.enabled = false; //hide droplet
     }
 
@@ -54,13 +56,17 @@ public class DropperTool : MonoBehaviour
                     break;
                 case false:
                     usingDropper = true;
+                    if (stamp.UsingStamp())
+                    {
+                        stamp.EquipStamp();
+                    }
                     bookHover.ZoneClose();
                     break;
             }
         }
         else if(!potionManager.HasPotion())
         {
-            StartCoroutine(gameManager.ShowWarning());
+            StartCoroutine(gameManager.ShowWarning()); //dropper is not usable until a potion is on the desk for testing
         }
     }
     

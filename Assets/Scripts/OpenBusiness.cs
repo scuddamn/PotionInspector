@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class OpenBusiness : MonoBehaviour
 {
     [Tooltip("time before menu fully closes")][SerializeField] private float closeDelay = 2f;
-    
+
+    private BookHover hoverZone;
     private TMP_Text signText;
     private BellScript bell;
     private static readonly int Fade = Animator.StringToHash("fade");
@@ -18,15 +19,18 @@ public class OpenBusiness : MonoBehaviour
         GetComponent<Button>().interactable = true;
         signText = GetComponentInChildren<TMP_Text>();
         bell = FindFirstObjectByType<BellScript>();
+        hoverZone = FindFirstObjectByType<BookHover>();
     }
 
     void StartGame()
     {
         gameObject.SetActive(false); //turn off 'open stall' button
+        hoverZone.ZoneOpen(); //make the guidebook interactable
         var movableObjects = GameObject.FindGameObjectsWithTag("MovableObject");
         foreach (var movableObject in movableObjects)
         {
-            movableObject.GetComponent<UIMover>().MoveIntoFrame(); //find all objects tagged MovableObject and call the MoveIntoFrame script on each of them
+            movableObject.GetComponent<UIMover>().MoveIntoFrame(); 
+            //find all objects tagged MovableObject and call the MoveIntoFrame script on each of them
         }
         bell.DropBell();
     }
@@ -36,7 +40,6 @@ public class OpenBusiness : MonoBehaviour
         GetComponent<Button>().interactable = false;
         GetComponent<Animator>().SetTrigger(Fade);
         signText.DOFade(0f, 0.5f);
-        
         
         Invoke(nameof(StartGame), closeDelay);
     }

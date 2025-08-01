@@ -14,19 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageIndex: 4
   titleL: Potion Strength
-  bodyL: 'The strength of a potion can vary from weak (minimal effect) to strong
-    (maximum effect). You have been provided with a Gleaning Candle (one of your
-    TOOLS), which can tell you how strong a potion is.
+  bodyL: '<align="left">The strength of a potion can vary from weak (minimal effect)
+    to strong (maximum effect). You have been provided with a Gleaning Candle (one
+    of your TOOLS), which can tell you how strong a potion is.
 
-    Just place a drop of
-    the potion onto the candle and look at the flame! (Pipette also included in your
-    TOOLS)'
+    Just place a
+    drop of the potion onto the candle and look at the flame! (Pipette also included
+    in your TOOLS)'
   titleR: Potion Strength
-  bodyR: 'Tall and skinny flames means the potion is WEAK
+  bodyR: '<align="left">Tall and skinny flames means the potion is WEAK
 
-    Average flames indicate
-    the potion is NORMAL
+    Average
+    flames indicate the potion is NORMAL
 
-    Wide or chunky flames appear when the potion is STRONG
+    Wide or chunky flames appear when the
+    potion is STRONG
 
 '

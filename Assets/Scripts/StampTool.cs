@@ -4,35 +4,77 @@ using UnityEngine.UI;
 
 public class StampTool : MonoBehaviour
 {
-    //assigned to the stamp object that contains the animator (sprite GO)
+   [SerializeField] private RectTransform offscreenSnap;
+   [SerializeField] private float moveSpeed = 0.5f;
     
-    private static readonly int Stamp = Animator.StringToHash("stamp");
-    [SerializeField] private Toggle sealToggle;
-    
-    private Animator animator;
-    private AudioManager audioManager;
-    
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-        audioManager = FindFirstObjectByType<AudioManager>();
+    private bool usingStamp = false;
+    private Vector3 mousePosition;
+    private PotionManager potionManager;
+    private GameManager gameManager;
+    private BookHover bookHoverZone;
+    private StampAnimHandler stampAnim;
+    private DropperTool dropper;
 
+    public bool UsingStamp()
+    {
+        return usingStamp;
     }
 
-    public void StampIt()
+    private void Start()
     {
-        animator.SetTrigger(Stamp);
+        stampAnim = GetComponentInChildren<StampAnimHandler>();
+        potionManager = FindFirstObjectByType<PotionManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
+        bookHoverZone = FindFirstObjectByType<BookHover>();
+        dropper = FindFirstObjectByType<DropperTool>();
     }
 
-    public void Stamped()
+    public void EquipStamp()
     {
-        sealToggle.isOn = true;
-    }
+        if (potionManager.HasPotion())
+        {
 
-    public void StampSound()
+            switch (usingStamp)
+            {
+                case true:
+                    transform.DOMove(offscreenSnap.position, moveSpeed);
+                    bookHoverZone.ZoneOpen();
+                    usingStamp = false;
+                    break;
+                case false:
+                    bookHoverZone.ZoneClose();
+                    usingStamp = true;
+                    if (dropper.UsingDropper())
+                    {
+                        dropper.EquipDropper();
+                    }
+                    break;
+            }
+            
+        } else if (!potionManager.HasPotion()) //cannot use stamp until player has a potion to inspect
+        {
+            StartCoroutine(gameManager.ShowWarning()); 
+        }
+    }
+    
+    private void Update()
     {
-        audioManager.StampSFX();
+        if (usingStamp)
+        {
+            mousePosition = Input.mousePosition;
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+        }
+
+        if (usingStamp && Input.GetMouseButtonDown(1))
+        {
+            usingStamp = false;
+            transform.DOMove(offscreenSnap.position, 0.5f);
+        }
+
+        if (usingStamp && Input.GetMouseButtonDown(0))
+        {
+            stampAnim.StampIt();
+        }
     }
 }

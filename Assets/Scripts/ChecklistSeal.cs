@@ -4,20 +4,25 @@ using UnityEngine.UI;
 
 public class ChecklistSeal : MonoBehaviour
 {
-    [SerializeField] private GameObject stamp;
-    
+    private StampTool stamp;
+    private Toggle seal;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        stamp = FindFirstObjectByType<StampTool>();
+        seal = GetComponent<Toggle>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
-        Debug.Log("seal trigger entered");
-        if (other.CompareTag("Seal"))
+        if (stamp.UsingStamp())
         {
-            stamp.GetComponent<StampTool>().StampIt();
+            seal.interactable = true;
+            
+        } else if (!stamp.UsingStamp())
+        {
+            seal.interactable = false;
         }
     }
 }

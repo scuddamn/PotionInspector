@@ -2,7 +2,6 @@ using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.Composites;
 using UnityEngine.UI;
 
 public class EndScreen : MonoBehaviour
@@ -41,24 +40,24 @@ public class EndScreen : MonoBehaviour
         resultIndex = 0;
         foreach (var result in resultDisplays)
         {
-            result.transform.position = resultSnapOUT.position;
+            result.transform.position = resultSnapOUT.position; //result displays start offscreen
         }
 
         foreach (var button in endButtons)
         {
-            button.transform.position = resultSnapOUT.position;
+            button.transform.position = resultSnapOUT.position; //endscreen buttons start offscreen
         }
     }
 
     public void NightTransition()
     {
-        //play nightJingle
+        //screen fades to black and then results enter frame
         audioManager.GetComponent<AudioSource>().PlayOneShot(nightJingle);
         backgroundImage.DOFade(1, nightFadeInDuration);
         Invoke(nameof(DisplayResults), nightFadeInDuration);
     }
 
-    private void GetResult(GameObject result)
+    private void GetResult(GameObject result) //change the text of the result display to the actual player results
     {
         result.GetComponentInChildren<TMP_Text>().text = 
             $"{potionManager.CurrentPotion().GetPotionName()} = \n{potionManager.CurrentPotion().GetActualPotion()}";
@@ -73,6 +72,7 @@ public class EndScreen : MonoBehaviour
 
     IEnumerator CycleResults()
     {
+        //results slide onto screen one at a time
         var index = 0;
         foreach (var resultDisplay in resultDisplays)
         {
@@ -91,6 +91,7 @@ public class EndScreen : MonoBehaviour
 
     public void WriteResult()
     {
+        //write whether the player correctly approved the current potion
         GetResult(resultDisplays[resultIndex]);
         resultIndex++;
 
@@ -98,6 +99,6 @@ public class EndScreen : MonoBehaviour
 
     public void DisplayResults()
     {
-        StartCoroutine(CycleResults());
+        StartCoroutine(CycleResults()); 
     }
 }

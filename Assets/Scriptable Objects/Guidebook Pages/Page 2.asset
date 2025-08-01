@@ -22,6 +22,6 @@ MonoBehaviour:
 
     Potion Effects'
   titleR: How to Inspect Potions
-  bodyR: "Examine each potion closely! Look at it, sniff it, even taste it!* \nUse
-    your TOOLS to test each potion!\nRefer back to this Guidebook for more information!\n\n*Taste
-    potions at your own risk"
+  bodyR: "<align=\"left\">Examine each potion closely! Look at it, sniff it, even
+    taste it!* \nUse your TOOLS to test each potion!\nRefer back to this Guidebook
+    for more information!\n\n*Taste potions at your own risk"

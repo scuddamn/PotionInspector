@@ -14,21 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageIndex: 7
   titleL: Recovery Potions
-  bodyL: 'Pay attention the COLOR of the flame when testing Recovery potions with
-    the Gleaning Candle to determine what sort of Recovery effects it provides.
+  bodyL: '<align="left">Pay attention the COLOR of the flame when testing Recovery
+    potions with the Gleaning Candle to determine what sort of Recovery effects it
+    provides.
 
-    If
-    your flame burns BLUE, it restores Mana.
+    If your flame burns BLUE, it restores Mana.
 
-    If your flame burns GREEN, it restores
-    Stamina.
+    If your flame
+    burns GREEN, it restores Stamina.
 
     If the flame burns RED, it restores Health.
 
 '
   titleR: Recovery Potions
-  bodyR: 'NOTE: Poisons fall under this category! Be careful!
+  bodyR: '<align="left">Note: Poisons fall under this category! Be careful!
 
-    If a Recovery
-    potion smells FISHY, it is a POISON! Instead of restoring health/mana/stamina,
+    If
+    a Recovery potion smells FISHY, it is a POISON! Instead of restoring health/mana/stamina,
     it will drain a consumer''s health/mana/stamina.'

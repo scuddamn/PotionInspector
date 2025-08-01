@@ -14,23 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageIndex: 5
   titleL: Potion Aromas
-  bodyL: When inspecting a potion, be sure to note down how the potion smells. If
-    the scent of the potion changes after inspection, we dispose of it, in case the
-    potion has spoiled. Aromas can also be used to determine more info about the
-    effect of the potion.
+  bodyL: <align="left">When inspecting a potion, be sure to note down how the potion
+    smells. If the scent of the potion changes after inspection, we dispose of it,
+    in case the potion has spoiled. Aromas can also be used to determine more info
+    about the effect of the potion.
   titleR: Potion Aromas
-  bodyR: 'Please take notice of the following aromas:
+  bodyR: '<align="left">Please take notice of the following aromas:
 
-    HERBAL - grassy, plant-like
+    HERBAL -
+    grassy, plant-like
 
-    METALLIC
-    - like a chunk of metal
+    METALLIC - like a chunk of metal
 
     SWEET - candy-like
 
-    FISHY - like a fish
+    FISHY
+    - like a fish
 
-    SULFURIC
-    - eggy and pungent
+    SULFURIC - eggy and pungent
 
     BLOODY - meat-like'

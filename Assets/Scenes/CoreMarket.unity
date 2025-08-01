@@ -8809,7 +8809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34f47374f4274c728d080544384b158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stamp: {fileID: 1795782210}
 --- !u!1 &560409982
 GameObject:
   m_ObjectHideFlags: 0
@@ -11108,7 +11107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -394, y: 284}
+  m_AnchoredPosition: {x: -394, y: 310}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &760227929
@@ -17536,7 +17535,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1352883425}
   - component: {fileID: 1352883430}
-  - component: {fileID: 1352883429}
   - component: {fileID: 1352883428}
   - component: {fileID: 1352883431}
   m_Layer: 5
@@ -17578,52 +17576,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc3f9bcee52341859ab3cd650ef0d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &1352883429
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352883424}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.3616066, y: 0.72332764}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 183.97336, y: 184.69656}
-  m_EdgeRadius: 0
 --- !u!222 &1352883430
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17641,10 +17593,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1352883424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b7bca9ebb6946d3b08525594159543, type: 3}
+  m_Script: {fileID: 11500000, guid: d16cbc85ba4d64a38bb50ba066847983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onscreenSnap: {fileID: 771515370}
   offscreenSnap: {fileID: 1772759215}
   moveSpeed: 0.5
 --- !u!1 &1367890703
@@ -21061,7 +21012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 424, y: 308}
+  m_AnchoredPosition: {x: 400, y: 324}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1585942944
@@ -23133,7 +23084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -23166,10 +23117,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1795782210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d16cbc85ba4d64a38bb50ba066847983, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abde9c2dfcdd4978805fee725509fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sealToggle: {fileID: 553037995}
 --- !u!1 &1800130649
 GameObject:
   m_ObjectHideFlags: 0
@@ -26673,8 +26623,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1352883431}
-        m_TargetAssemblyTypeName: StampMover, Assembly-CSharp
-        m_MethodName: MoveStamp
+        m_TargetAssemblyTypeName: StampTool, Assembly-CSharp
+        m_MethodName: EquipStamp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

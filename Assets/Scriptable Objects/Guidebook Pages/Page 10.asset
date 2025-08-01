@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageIndex: 10
   titleL: Magical Potions
-  bodyL: Magical potions are mysterious and powerful. They can create effects like
-    shapeshifting, teleportation, or mind-reading. These potions should always have
-    METALLIC or SULFURIC notes in their aromas.
+  bodyL: <align="left">Magical potions are mysterious and powerful. They can create
+    effects like shapeshifting, teleportation, or mind-reading. These potions should
+    always have METALLIC or SULFURIC notes in their aromas.
   titleR: Magical Potions
-  bodyR: 'If a Magical potion burns ANY COLOR other than white on the Gleaning Candle,
-    it is too dangerous to sell. '
+  bodyR: '<align="left">If a Magical potion burns ANY COLOR other than white on the
+    Gleaning Candle, it is too dangerous to sell. '

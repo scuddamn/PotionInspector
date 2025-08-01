@@ -14,24 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageIndex: 9
   titleL: Mental Potions
-  bodyL: 'These potions only affect mental traits. The Gleaning Candle will tell
-    you which trait, based on FLAME COLOR.
+  bodyL: '<align="left">These potions only affect mental traits. The Gleaning Candle
+    will tell you which trait, based on FLAME COLOR.
 
     Charm = Pink
 
-    Wit = Yellow
+    Wit =
+    Yellow
 
-    Confidence
-    = Green
+    Confidence = Green
 
     Cool = Blue'
   titleR: Corporeal Potions
-  bodyR: 'These potions only affect physical traits. The Gleaning Candle will tell
-    you which trait, based on FLAME COLOR.
+  bodyR: '<align="left">These potions only affect physical traits. The Gleaning Candle
+    will tell you which trait, based on FLAME COLOR.
 
     Strength = Red
 
-    Speed = Blue
+    Speed
+    = Blue
 
-    Size
-    = Yellow'
+    Size = Yellow'

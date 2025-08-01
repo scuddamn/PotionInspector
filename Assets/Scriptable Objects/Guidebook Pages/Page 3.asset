@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageIndex: 3
   titleL: Potion Types
-  bodyL: "PECSA only allows potions from five categories to be sold: \nRecovery,
-    Elemental, Mental, Corporeal, or Magical."
+  bodyL: "<align=\"left\">PECSA only allows potions from five categories to be sold:
+    \nRecovery, Elemental, Mental, Corporeal, or Magical."
   titleR: Potion Types
-  bodyR: 'How do you tell the category of a potion? Easily! Just look at the color!
+  bodyR: '<align="left">How do you tell the category of a potion? Easily! Just look
+    at the color!
 
-    Recovery
-    = Red
+    Recovery = Red
 
     Elemental = Green
 
     Mental = Blue
 
-    Corporeal = Yellow
+    Corporeal
+    = Yellow
 
-    Magical
-    = Purple'
+    Magical = Purple'

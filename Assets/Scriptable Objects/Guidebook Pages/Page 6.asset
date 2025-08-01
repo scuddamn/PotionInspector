@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageIndex: 6
   titleL: Potion Effects
-  bodyL: Just because an alchemist has told you that they've handed you a healing
-    potion, doesn't mean that potion will ACTUALLY be a healing potion. People lie!
-    It's your job to figure out the truth.
+  bodyL: <align="left">Just because an alchemist has told you that they've handed
+    you a healing potion, doesn't mean that potion will ACTUALLY be a healing potion.
+    People lie! It's your job to figure out the truth.
   titleR: Potion Effects
-  bodyR: While sampling the potion is the easiest way to understand what the potion
-    does, it doesn't always tell you everything you wish to know. You can narrow
-    down the potion's effect to sub-categories within each potion TYPE. Check each
-    type category page for more info.
+  bodyR: <align="left">While sampling the potion is the easiest way to understand
+    what the potion does, it doesn't always tell you everything you wish to know.
+    You can narrow down the potion's effect to sub-categories within each potion
+    TYPE. Check each type category page for more info.

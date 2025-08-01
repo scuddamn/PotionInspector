@@ -12,6 +12,7 @@ public class BookHover : MonoBehaviour
     {
         hoverArea = GetComponent<Collider2D>();
         bookManager = FindFirstObjectByType<BookManager>(); //get reference to the script on the book item
+        ZoneClose(); //before the "open stall" button is pressed, the book will not be interactable
     }
 
     public void ZoneClose()
@@ -47,7 +48,7 @@ public class BookHover : MonoBehaviour
     }
 
     private void OnMouseDown()
-    {
+    { //when the book/hover zone is clicked on
         if (hoverable && !bookManager.IsOpen())
         {
             bookManager.MoveToOpen();

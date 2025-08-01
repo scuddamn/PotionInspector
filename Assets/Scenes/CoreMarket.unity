@@ -1137,6 +1137,7 @@ MonoBehaviour:
   inspectorMenu: {fileID: 1367890703}
   inspectorSnapIn: {fileID: 380524854}
   inspectorSnapOut: {fileID: 2134818190}
+  helpButton: {fileID: 2030888660}
   checklistMenu: {fileID: 39016527}
   checklistSnapIn: {fileID: 1617766564}
   checklistSnapOut: {fileID: 1180555497}

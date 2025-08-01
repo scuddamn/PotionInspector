@@ -9,6 +9,7 @@ public class OpenBusiness : MonoBehaviour
 {
     [Tooltip("time before menu fully closes")][SerializeField] private float closeDelay = 2f;
 
+    private GameManager gameManager;
     private BookHover hoverZone;
     private TMP_Text signText;
     private BellScript bell;
@@ -20,6 +21,7 @@ public class OpenBusiness : MonoBehaviour
         signText = GetComponentInChildren<TMP_Text>();
         bell = FindFirstObjectByType<BellScript>();
         hoverZone = FindFirstObjectByType<BookHover>();
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
     void StartGame()
@@ -32,6 +34,7 @@ public class OpenBusiness : MonoBehaviour
             movableObject.GetComponent<UIMover>().MoveIntoFrame(); 
             //find all objects tagged MovableObject and call the MoveIntoFrame script on each of them
         }
+        gameManager.EnableHelp();
         bell.DropBell();
     }
 

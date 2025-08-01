@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject inspectorMenu;
     [SerializeField] private Transform inspectorSnapIn;
     [SerializeField] private Transform inspectorSnapOut;
+    [SerializeField] private GameObject helpButton;
     private bool inspectorOpen = false;
     
     [Header("Checklist Menu")]
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         openSign.SetActive(true);
+        helpButton.SetActive(false);
     }
 
     public void OpenInspector() //to be called when clicking the 'inspect' button
@@ -129,6 +131,11 @@ public class GameManager : MonoBehaviour
     public void PlayAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void EnableHelp()
+    {
+        helpButton.SetActive(true);
     }
 
     

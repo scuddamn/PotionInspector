@@ -22,10 +22,12 @@ public class TutorialScript : MonoBehaviour
     public void NoTutorial()
     {
         tutorialScreen.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void OpenTutorial()
     {
+        Time.timeScale = 0;
         tutorialScreen.SetActive(true);
         tutorialRequest.SetActive(true);
         tutorial.SetActive(false);
@@ -34,5 +36,6 @@ public class TutorialScript : MonoBehaviour
     public void CloseTutorial()
     {
         tutorialScreen.SetActive(false);
+        Time.timeScale = 1;
     }
 }
